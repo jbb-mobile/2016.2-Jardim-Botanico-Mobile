@@ -2,19 +2,27 @@ package com.example.jbbmobile.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.jbbmobile.R;
 import com.example.jbbmobile.controller.LoginController;
+import com.example.jbbmobile.controller.MainController;
 import com.example.jbbmobile.controller.PreferenceController;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 import java.io.IOException;
+
+import static android.R.attr.data;
 
 public class MainScreenActivity extends AppCompatActivity  implements View.OnClickListener{
 
@@ -24,6 +32,8 @@ public class MainScreenActivity extends AppCompatActivity  implements View.OnCli
     final String PREFS_NAME = "mainScreenFirstTime";
     private ImageButton menuMoreButton;
     private ImageButton almanacButton;
+    private ImageView readQrCodeButton;
+    private MainController mainController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,16 +70,38 @@ public class MainScreenActivity extends AppCompatActivity  implements View.OnCli
             case R.id.menuMoreButton:
                 goToPreferenceScreen();
                 break;
+            case R.id.readQrCodeButton:
+                mainController = new MainController(MainScreenActivity.this);
         }
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+
+        if(result != null){
+            if(result.getContents() == null){
+                mainController.setCode(null);
+            }
+            else {
+                mainController.setCode(result.getContents());
+                Toast.makeText(this, "leitura: " + result.getContents(), Toast.LENGTH_SHORT).show();
+            }
+        }
+        else{
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
     private void initViews(){
         this.menuMoreButton = (ImageButton)findViewById(R.id.menuMoreButton);
         this.almanacButton = (ImageButton)findViewById(R.id.almanacButton);
+        this.readQrCodeButton = (ImageView)findViewById(R.id.readQrCodeButton);
 
         this.menuMoreButton.setOnClickListener((View.OnClickListener) this);
         this.almanacButton.setOnClickListener((View.OnClickListener) this);
+        this.readQrCodeButton.setOnClickListener((View.OnClickListener) this);
     }
 
     private void invalidNicknameError(){
