@@ -6,6 +6,12 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import gov.jbb.missaonascente.dao.ExplorerDAO;
 import gov.jbb.missaonascente.dao.RegisterRequest;
 import gov.jbb.missaonascente.model.Explorer;
@@ -18,6 +24,10 @@ public class RegisterExplorerController {
 
     private Explorer explorer;
     private boolean response;
+
+    private DatabaseReference rootReference = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference explorersReference = rootReference.child("explorers");
+
     private boolean action = false;
     public final String EXPLORER_REGISTER = "ifIsFirstExplorerLogin";
     public final String FIRST_EXPLORER_LOGIN = "firstExplorerLogin";
@@ -32,6 +42,30 @@ public class RegisterExplorerController {
 
             int errorRegister = -1;
 
+            Log.i("DB", "Adding to database");
+            DatabaseReference newExplorerReference = explorersReference.child(explorer.getNickname());
+
+
+            newExplorerReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(!dataSnapshot.exists()){
+                        explorersReference.child(explorer.getNickname()).setValue(explorer);
+                        Log.d("DB", "Usuário novo: " + explorer.getNickname());
+                    }else{
+                        Log.d("DB", "Usuário já existe: " + explorer.getNickname());
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+            Log.i("DB", "Added to database");
+
             if (explorerDAO.insertExplorer(getExplorer()) == errorRegister) {
                 throw new SQLiteConstraintException();
             }
@@ -39,6 +73,7 @@ public class RegisterExplorerController {
             RegisterRequest registerRequest = new RegisterRequest(getExplorer().getNickname(),
                     getExplorer().getPassword(),
                     getExplorer().getEmail());
+
 
             registerRequest.request(context, new RegisterRequest.Callback() {
                 @Override
@@ -57,8 +92,7 @@ public class RegisterExplorerController {
                     setAction(true);
                 }
             });
-
-
+            /**/
         }catch (IllegalArgumentException exception){
 
             if((exception.getLocalizedMessage()).equals("Invalid nick")){
