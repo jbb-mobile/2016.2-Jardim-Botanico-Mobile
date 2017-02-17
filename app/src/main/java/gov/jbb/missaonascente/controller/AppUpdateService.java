@@ -15,7 +15,7 @@ public class AppUpdateService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        new Update().start();
+        //new Update().start();
         return super.onStartCommand(intent, flags, startId);
     }
 

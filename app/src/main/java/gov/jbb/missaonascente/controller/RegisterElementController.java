@@ -40,8 +40,8 @@ public class RegisterElementController {
     private static final String EMPTY_STRING = "";
 
     private DatabaseReference rootReference = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference explorersReference = rootReference.child("explorers");
-    private DatabaseReference elementExplorerReference = rootReference.child("element_explorer");
+    private DatabaseReference explorersReference = rootReference.child(ExplorerDAO.TABLE);
+    private DatabaseReference elementExplorerReference = rootReference.child(ElementDAO.RELATION);
 
     public RegisterElementController(LoginController loginController){
         this.loginController = loginController;

@@ -35,7 +35,7 @@ public class ElementDAO extends SQLiteOpenHelper {
     protected static String COLUMN_HISTORYMESSAGE = "historyMessage";
 
     protected static String TABLE = "ELEMENT";
-    protected static String RELATION = TABLE + "_" + ExplorerDAO.TABLE;
+    public static String RELATION = TABLE + "_" + ExplorerDAO.TABLE;
 
     protected static String VERSION_TABLE = "VERSION";
     protected static String COLUMN_VERSION = "version";

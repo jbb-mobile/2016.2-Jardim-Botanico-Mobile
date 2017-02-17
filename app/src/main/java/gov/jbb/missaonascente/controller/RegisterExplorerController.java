@@ -25,7 +25,7 @@ public class RegisterExplorerController {
     private boolean response;
 
     private DatabaseReference rootReference = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference explorersReference = rootReference.child("explorers");
+    private DatabaseReference explorersReference = rootReference.child(ExplorerDAO.TABLE);
 
     private boolean action = false;
     public final String EXPLORER_REGISTER = "ifIsFirstExplorerLogin";

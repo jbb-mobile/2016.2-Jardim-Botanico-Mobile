@@ -24,7 +24,7 @@ public class LoginController {
     private static final String PREF_NAME = "MainActivityPreferences";
 
     private DatabaseReference rootReference = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference explorersReference = rootReference.child("explorers");
+    private DatabaseReference explorersReference = rootReference.child(ExplorerDAO.TABLE);
 
     public LoginController() {
         explorer = new Explorer();

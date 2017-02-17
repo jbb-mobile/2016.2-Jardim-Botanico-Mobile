@@ -20,6 +20,7 @@ public class ExplorerUpdateService extends Service{
     }
 
     private class Update extends Thread{
+        //TODO manejar update agora que tem o firebase
         @Override
         public void run() {
             ExplorerController explorerController = new ExplorerController();
