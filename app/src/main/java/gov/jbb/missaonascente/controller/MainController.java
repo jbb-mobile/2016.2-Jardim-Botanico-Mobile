@@ -90,11 +90,11 @@ public class MainController {
                 ElementDAO database = new ElementDAO(context);
                 if(database.checkVersion() == response){
                     setResponse(false);
-                    Toast.makeText(context, "Não precisa atualizar", Toast.LENGTH_SHORT).show();
+                    Log.d("Update", "Não precisa atualizar");
                 }else{
-                    Log.d("=======","Passou Aqui");
-                    Toast.makeText(context, "Atualizando", Toast.LENGTH_SHORT).show();
+                    Log.d("Update", "Atualizando");
                     setResponse(true);
+                    //TODO fazer download das conquistas que ele já tem
                     ElementsController elementsController = new ElementsController();
                     QuestionController questionController = new QuestionController();
                     AlternativeController alternativeController = new AlternativeController();

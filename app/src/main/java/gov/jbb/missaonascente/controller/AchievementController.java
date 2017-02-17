@@ -27,6 +27,7 @@ public class AchievementController {
     }
 
     public void downloadAchievementFromDatabase(Context context){
+        //TODO mudar achievements pra download do parser
         final AchievementDAO achievementDAO = new AchievementDAO(context);
         AchievementRequest achievementRequest = new AchievementRequest();
         try{
@@ -66,6 +67,9 @@ public class AchievementController {
     public boolean insertAchievementExplorer(final Context preferenceContext, String email, int idAchievement) {
         try{
             setAction(false);
+
+
+
             AchievementExplorerRequest achievementExplorerRequest = new AchievementExplorerRequest(email, idAchievement);
             achievementExplorerRequest.requestUpdateAchievements(preferenceContext, new AchievementExplorerRequest.Callback() {
                 @Override

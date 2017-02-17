@@ -16,6 +16,7 @@ public class AlternativeController {
     public AlternativeController(){}
 
     public void downloadAllAlternatives(final Context context){
+        //TODO mudar alternatives pra download do parser
         AlternativeRequest alternativeRequest = new AlternativeRequest(new AlternativeRequest.Callback() {
             @Override
             public void callbackResponse(List<Alternative> listAlternatives) {

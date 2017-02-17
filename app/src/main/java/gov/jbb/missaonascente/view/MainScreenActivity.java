@@ -172,7 +172,6 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
     protected void onStart() {
         super.onStart();
         setScore();
-
     }
 
     @Override

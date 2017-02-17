@@ -69,6 +69,7 @@ public class ElementsController {
     }
 
     public void downloadElementsFromDatabase(final Context context){
+        //TODO muda elements para download do parser
         final ElementDAO elementDao = new ElementDAO(context);
         DownloadElementsRequest downloadElementsRequest = new DownloadElementsRequest();
 

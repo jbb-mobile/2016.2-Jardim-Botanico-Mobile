@@ -71,6 +71,7 @@ public class QuestionController {
     }
 
     public void downloadQuestionsFromDatabase(Context context){
+        //TODO mudar questions para download do parser
         QuestionDAO questionDAO = new QuestionDAO(context);
         List<Question> listQuestions;
         try{
