@@ -9,6 +9,9 @@ import android.graphics.BitmapFactory;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import gov.jbb.missaonascente.R;
 import gov.jbb.missaonascente.dao.ElementDAO;
 import gov.jbb.missaonascente.dao.ExplorerDAO;
@@ -35,6 +38,10 @@ public class RegisterElementController {
     private String date;
 
     private static final String EMPTY_STRING = "";
+
+    private DatabaseReference rootReference = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference explorersReference = rootReference.child("explorers");
+    private DatabaseReference elementExplorerReference = rootReference.child("element_explorer");
 
     public RegisterElementController(LoginController loginController){
         this.loginController = loginController;
@@ -73,8 +80,14 @@ public class RegisterElementController {
                 loginController.getExplorer().updateScore(newScore);
                 explorerDAO.updateExplorer(loginController.getExplorer());
 
-                ExplorerController explorerController = new ExplorerController();
 
+                elementExplorerReference.child(element.getIdElement() + ", " + explorer.firebaseEmail())
+                        .child("date").setValue(catchCurrentDate);
+
+                explorersReference.child(explorer.firebaseEmail())
+                        .child("score").setValue(loginController.getExplorer().getScore());
+
+                /*
                 if(MainController.checkIfUserHasInternet(context)) {
                     explorerController.insertExplorerElement(context,
                             loginController.getExplorer().getEmail(),
@@ -86,12 +99,13 @@ public class RegisterElementController {
                             loginController.getExplorer().getScore(),
                             loginController.getExplorer().getEmail());
                 }
+                */
             }catch (SQLException sqlException){
                 currentPhotoPath = findImagePathByAssociation(elementDAO, getElement().getIdElement(), email);
                 throw sqlException;
             }
         }else{
-            throw new IllegalArgumentException("Periodo Inválido");
+            throw new IllegalArgumentException("Período Inválido");
         }
     }
 

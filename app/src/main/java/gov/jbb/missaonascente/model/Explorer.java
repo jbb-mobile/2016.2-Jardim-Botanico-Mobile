@@ -71,8 +71,8 @@ public class Explorer{
         return email;
     }
 
-    public String getFirebaseEmail(){
-        return email.replace(".", ",").toLowerCase();
+    public String firebaseEmail(){
+        return email.replace(".", "*").toLowerCase();
     }
 
     public void setEmail(String email) {
