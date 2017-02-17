@@ -195,4 +195,6 @@ O aplicativo também tem outro recursos para motivar você, explorador do cerrad
     <string name="try_photo_later">Impossível tirar foto, tente mais tarde</string>
     <string name="preferences">Preferências</string>
     <string name="try_the_picture_later">Erro ao tirar foto! Tente mais tarde.</string>
+    <string name="logging_in">Realizando login...</string>
+    <string name="registering_user">Cadastrando usuário...</string>
 </resources>

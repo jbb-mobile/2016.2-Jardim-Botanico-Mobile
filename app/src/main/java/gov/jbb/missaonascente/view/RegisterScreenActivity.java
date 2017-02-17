@@ -75,6 +75,14 @@ public class RegisterScreenActivity extends AppCompatActivity implements View.On
         if (v.getId() == R.id.registerButton) {
             try{
                 if(new MainController().checkIfUserHasInternet(this)) {
+                    progressDialog = new ProgressDialog(this){
+                        @Override
+                        public void onBackPressed() {
+                            dismiss();
+                        }
+                    };
+
+                    progressDialog.setMessage(getString(R.string.registering_user));
                     registerExplorerController.register(edtUser.getText().toString(), edtEmail.getText().toString(),
                             edtPassword.getText().toString(), edtEqualsPassword.getText().toString(),
                             this.getApplicationContext());
@@ -82,16 +90,11 @@ public class RegisterScreenActivity extends AppCompatActivity implements View.On
                     loginController = new LoginController();
                     loginController.deleteFile(RegisterScreenActivity.this);
 
+                    progressDialog.setMessage(getString(R.string.logging_in));
                     loginController.realizeLogin(edtEmail.getText().toString(), edtPassword.getText().toString(), this.getApplicationContext());
                     loginController.loadFile(this.getApplicationContext());
 
-                    progressDialog = new ProgressDialog(this){
-                        @Override
-                        public void onBackPressed() {
-                            dismiss();
-                        }
-                    };
-                    progressDialog.setTitle(R.string.loading);
+
                     if(progressDialog.isShowing()){
                         progressDialog.dismiss();
                     }
