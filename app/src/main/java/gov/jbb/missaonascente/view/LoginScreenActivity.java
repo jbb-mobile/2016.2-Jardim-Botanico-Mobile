@@ -87,7 +87,7 @@ public class LoginScreenActivity extends AppCompatActivity implements View.OnCli
                         dismiss();
                     }
                 };
-                progressDialog.setTitle(R.string.loading);
+                progressDialog.setMessage(getString(R.string.logging_in));
                 if(progressDialog.isShowing()){
                    progressDialog.dismiss();
                 }

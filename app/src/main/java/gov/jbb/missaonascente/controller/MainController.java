@@ -23,6 +23,10 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class MainController {
+    //TODO deixar login pelo nickname
+    //TODO deixar login como unique por causa do ranking (?)
+    //TODO tirar VERSION com parcimônia
+
     private String code;
     private boolean action = false;
     private boolean response;
@@ -90,11 +94,11 @@ public class MainController {
                 ElementDAO database = new ElementDAO(context);
                 if(database.checkVersion() == response){
                     setResponse(false);
-                    Toast.makeText(context, "Não precisa atualizar", Toast.LENGTH_SHORT).show();
+                    Log.d("Update", "Não precisa atualizar");
                 }else{
-                    Log.d("=======","Passou Aqui");
-                    Toast.makeText(context, "Atualizando", Toast.LENGTH_SHORT).show();
+                    Log.d("Update", "Atualizando");
                     setResponse(true);
+                    //TODO fazer download das conquistas que ele já tem
                     ElementsController elementsController = new ElementsController();
                     QuestionController questionController = new QuestionController();
                     AlternativeController alternativeController = new AlternativeController();
@@ -140,16 +144,6 @@ public class MainController {
 
         ArrayList<Achievement> newAchievements =
                 achievementController.checkForNewElementAchievements(historyController, explorer);
-
-        return newAchievements;
-    }
-
-    //TODO setar onde é respondida a questão
-    public ArrayList<Achievement> checkForNewQuestionAchievements(Context context, Explorer explorer) {
-        AchievementController achievementController = new AchievementController(context);
-
-        ArrayList<Achievement> newAchievements =
-                achievementController.checkForNewQuestionAchievements(explorer);
 
         return newAchievements;
     }

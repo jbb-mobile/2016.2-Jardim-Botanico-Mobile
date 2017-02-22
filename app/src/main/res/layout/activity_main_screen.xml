@@ -25,30 +25,31 @@
             android:id="@+id/menuMoreButton"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:background="@drawable/shape_oval"
             android:elevation="10dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="25dp"
             android:layout_marginLeft="25dp"
-            android:src="@mipmap/ic_menu_more"/>
+            android:src="@mipmap/ic_menu_more"
+            android:background="@drawable/shape_oval"
+            />
 
         <ImageButton
             android:id="@+id/almanacButton"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:background="@drawable/shape_oval"
             android:elevation="10dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="25dp"
             android:layout_marginRight="25dp"
-            android:src="@mipmap/ic_book"/>
+            android:src="@mipmap/ic_book"
+            android:background="@drawable/shape_oval"
+            />
 
         <ImageButton
             android:id="@+id/historyButton"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:background="@drawable/shape_oval"
             android:elevation="10dp"
             android:layout_above="@id/almanacButton"
             android:layout_alignParentBottom="true"
@@ -56,6 +57,7 @@
             android:layout_marginBottom="100dp"
             android:layout_marginRight="25dp"
             android:src="@mipmap/ic_map_white"
+            android:background="@drawable/shape_oval"
             android:visibility="gone"/>
 
         <!-- TODO tirar daqui -->

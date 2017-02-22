@@ -2,6 +2,7 @@ package gov.jbb.missaonascente.view;
 
 
 import android.content.Context;
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -36,10 +37,13 @@ public class AchievementAdapter extends RecyclerView.Adapter<AchievementAdapter.
         if(achievement.isExplorer()){
             String descriptionText = achievement.getDescriptionAchievement();
             viewHolder.description.setText(descriptionText);
+            viewHolder.description.setTextColor(ContextCompat.getColor(context,R.color.white));
 
             String nameText = achievement.getNameAchievement();
 
             viewHolder.name.setText(nameText);
+            viewHolder.name.setTextColor(ContextCompat.getColor(context,R.color.white));
+
 
             ArrayList<Integer> ids = getIds(achievement.getKeys());
 
@@ -47,7 +51,9 @@ public class AchievementAdapter extends RecyclerView.Adapter<AchievementAdapter.
             int medalImageId = ids.get(1);
 
             viewHolder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context,backgroundColorId));
-            viewHolder.cardView.setElevation(5 * context.getResources().getDisplayMetrics().density);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                viewHolder.cardView.setElevation(5 * context.getResources().getDisplayMetrics().density);
+            }
 
             viewHolder.achievementImage.setImageResource(medalImageId);
 
@@ -66,7 +72,9 @@ public class AchievementAdapter extends RecyclerView.Adapter<AchievementAdapter.
 
             viewHolder.achievementImage.setImageResource(R.mipmap.locked_achievement);
 
-            viewHolder.cardView.setElevation(0);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                viewHolder.cardView.setElevation(0);
+            }
 
 
         }

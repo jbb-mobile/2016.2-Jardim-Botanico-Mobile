@@ -13,7 +13,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import gov.jbb.missaonascente.dao.ExplorerDAO;
-import gov.jbb.missaonascente.dao.RegisterRequest;
 import gov.jbb.missaonascente.model.Explorer;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -26,7 +25,7 @@ public class RegisterExplorerController {
     private boolean response;
 
     private DatabaseReference rootReference = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference explorersReference = rootReference.child("explorers");
+    private DatabaseReference explorersReference = rootReference.child(ExplorerDAO.TABLE);
 
     private boolean action = false;
     public final String EXPLORER_REGISTER = "ifIsFirstExplorerLogin";
@@ -42,19 +41,30 @@ public class RegisterExplorerController {
 
             int errorRegister = -1;
 
-            Log.i("DB", "Adding to database");
-            DatabaseReference newExplorerReference = explorersReference.child(explorer.getNickname());
+            if (explorerDAO.insertExplorer(getExplorer()) == errorRegister) {
+                throw new SQLiteConstraintException();
+            }
 
+            Log.i("DB", "Adding to database");
+            DatabaseReference newExplorerReference = explorersReference.child(explorer.firebaseEmail());
 
             newExplorerReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+                    setResponse(!dataSnapshot.exists());
                     if(!dataSnapshot.exists()){
-                        explorersReference.child(explorer.getNickname()).setValue(explorer);
+                        explorersReference.child(explorer.firebaseEmail()).setValue(explorer);
                         Log.d("DB", "Usuário novo: " + explorer.getNickname());
+
+                        SharedPreferences preferencesRegister = context.getSharedPreferences(FIRST_EXPLORER_LOGIN, 0);
+                        SharedPreferences.Editor editor = preferencesRegister.edit();
+                        editor.putBoolean(EXPLORER_REGISTER, true);
+                        editor.apply();
                     }else{
                         Log.d("DB", "Usuário já existe: " + explorer.getNickname());
                     }
+
+                    setAction(true);
                 }
 
                 @Override
@@ -63,36 +73,8 @@ public class RegisterExplorerController {
                 }
             });
 
-
             Log.i("DB", "Added to database");
 
-            if (explorerDAO.insertExplorer(getExplorer()) == errorRegister) {
-                throw new SQLiteConstraintException();
-            }
-
-            RegisterRequest registerRequest = new RegisterRequest(getExplorer().getNickname(),
-                    getExplorer().getPassword(),
-                    getExplorer().getEmail());
-
-
-            registerRequest.request(context, new RegisterRequest.Callback() {
-                @Override
-                public void callbackResponse(boolean success) {
-                    setResponse(success);
-                    if(!success){
-                        Log.d("Deleting all explorers", "Delete");
-                        ExplorerDAO database = new ExplorerDAO(context);
-                        database.deleteExplorer(explorer);
-                    }else{
-                        SharedPreferences preferencesRegister = context.getSharedPreferences(FIRST_EXPLORER_LOGIN, 0);
-                        SharedPreferences.Editor editor = preferencesRegister.edit();
-                        editor.putBoolean(EXPLORER_REGISTER, true);
-                        editor.apply();
-                    }
-                    setAction(true);
-                }
-            });
-            /**/
         }catch (IllegalArgumentException exception){
 
             if((exception.getLocalizedMessage()).equals("Invalid nick")){

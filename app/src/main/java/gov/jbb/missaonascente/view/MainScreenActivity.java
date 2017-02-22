@@ -7,8 +7,10 @@ import android.content.SharedPreferences;
 import android.database.SQLException;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
@@ -44,40 +46,38 @@ import gov.jbb.missaonascente.controller.NotificationController;
 import gov.jbb.missaonascente.controller.ProfessorController;
 import gov.jbb.missaonascente.controller.QuestionController;
 import gov.jbb.missaonascente.controller.RegisterElementController;
-import gov.jbb.missaonascente.model.Achievement;
 import gov.jbb.missaonascente.controller.RegisterExplorerController;
+import gov.jbb.missaonascente.model.Achievement;
 import gov.jbb.missaonascente.model.Element;
 
 
 public class MainScreenActivity extends AppCompatActivity implements View.OnClickListener, QuestionFragment.OnFragmentInteractionListener {
-
-    private final String APP_FIRST_TIME = "appFirstTime";
-    private final int QUESTION_ENERGY = 20;
-    private final long MIN_TIME = 30000;     // 2 minutes;
 
     private LoginController loginController;
     private ImageButton menuMoreButton;
     private ImageButton almanacButton;
     private ImageButton historyButton;
     private ImageView readQrCodeButton;
+    private PopupMenu popupMenu;
     private TextView scoreViewText;
     private MainController mainController;
     private QuestionController questionController;
     private RegisterElementFragment registerElementFragment;
     private QuestionFragment questionFragment;
     private ProfessorFragment professorFragment;
-    private RegisterElementController registerElementController;
     private RelativeLayout relativeLayoutUp;
     private ProgressBar energyBar;
     private EnergyController energyController;
     private Thread energyThread;
     private HistoryController historyController;
 
+    @SuppressWarnings("unused")
     private static final String TAG = "MainScreenActivity";
 
-    private void showPopup(View v) {
+    private void createPopup(View v){
+        Log.d(TAG, "Criando popup");
         Context layout = new ContextThemeWrapper(getContext(), R.style.popupMenuStyle);
-        PopupMenu popupMenu = new PopupMenu(layout, v);
+        popupMenu = new PopupMenu(layout, v);
         popupMenu.inflate(R.menu.settings_menu);
 
         MainController mainController = new MainController();
@@ -117,22 +117,23 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
                 }
             }
         });
+    }
+
+    private void showPopup(View v) {
+        if(popupMenu == null){
+            createPopup(v);
+        }
         popupMenu.show();
+        Log.d(TAG, "Mostrou popup");
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
-        
+
         if (savedInstanceState == null) {
-            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-            //FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             historyController = new HistoryController(this);
-            //fragmentTransaction.add(R.id.register_fragment, registerElementFragment, "RegisterElementFragment");
-
-            //fragmentTransaction.commit();
-
         }
 
         if(registerElementFragment == null){
@@ -140,6 +141,7 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
         }
 
         MainController mainController = new MainController();
+        String APP_FIRST_TIME = "appFirstTime";
         mainController.downloadDataFirstTime(this, getSharedPreferences(APP_FIRST_TIME, MODE_PRIVATE));
 
         NotificationController notificationController = new NotificationController(this);
@@ -166,13 +168,14 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
             registerExplorerController.updateExplorerSharedPreference(this);
             tutorialChoice();
         }
+
+        createPopup(findViewById(R.id.menuMoreButton));
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         setScore();
-
     }
 
     @Override
@@ -213,6 +216,8 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
             }
         };
         energyThread.start();
+
+        Log.d(TAG, "onResume");
     }
 
     @Override
@@ -220,24 +225,34 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
         super.onPause();
         energyThread.interrupt();
         energyController.addEnergyTimeOnPreferencesTime();
+        Log.d(TAG, "onPause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        /*if(mainController.checkIfUserHasInternet(getContext()))
-            energyController.sendEnergy(getContext());*/
+        Log.d(TAG, "onStop");
+    }
 
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+
+        destroyViews();
+
+        Log.d(TAG, "onDestroy");
     }
 
     @Override
     public void onClick(View v) {
+        Log.d(TAG, "Entrou onClick");
         switch (v.getId()) {
             case R.id.almanacButton:
                 goToAlmanacScreen();
 
                 break;
             case R.id.menuMoreButton:
+                Log.d(TAG, "Achou botao");
                 showPopup(findViewById(R.id.menuMoreButton));
 
                 break;
@@ -292,7 +307,7 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
     }
 
     protected void processQRCode(){
-        int elementEnergy = 0;
+        int elementEnergy;
 
         if(mainController == null){
             mainController = new MainController(this);
@@ -301,10 +316,10 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
         String code = mainController.getCode();
 
         if(registerElementFragment != null){
-            registerElementController = registerElementFragment.getController();
+            RegisterElementController registerElementController = registerElementFragment.getController();
             if(code != null) {
                 mainController.setCode(null);
-                Element element = new Element();
+                Element element;
                 try {
                     registerElementController.associateElementByQrCode(code, getContext());
                     elementEnergy = registerElementController.getElement().getEnergeticValue();
@@ -346,7 +361,8 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
 
         Integer imageId = AchievementAdapter.getIds(achievement.getKeys()).get(1);
 
-        ((TextView) view.findViewById(R.id.new_medal_text)).setText("Conquista desbloqueada:\n" + achievement.getNameAchievement());
+        ((TextView) view.findViewById(R.id.new_medal_text)).
+                setText(getString(R.string.new_unlocked_achievement) + achievement.getNameAchievement());
         ((ImageView) view.findViewById(R.id.new_medal_image)).setImageResource(imageId);
         Toast toast = new Toast(getContext());
         toast.setView(view);
@@ -442,6 +458,16 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
         this.historyButton.setOnClickListener(this);
     }
 
+    private void destroyViews(){
+        this.menuMoreButton = null;
+        this.almanacButton = null;
+        this.historyButton = null;
+        this.readQrCodeButton = null;
+        this.scoreViewText = null;
+        this.energyBar = null;
+        this.popupMenu = null;
+    }
+
     public void setScore() {
         //Change score leaft color if explorer has any story element
         historyController = new HistoryController(this);
@@ -508,6 +534,8 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
         int explorerEnergyText;
 
         explorerEnergy = energyController.getExplorer().getEnergy();
+
+        int QUESTION_ENERGY = 20;
         explorerEnergyText = explorerEnergy + QUESTION_ENERGY;
         energyController.getExplorer().setEnergy(explorerEnergyText);
 

@@ -3,8 +3,14 @@ package gov.jbb.missaonascente.controller;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import gov.jbb.missaonascente.dao.ExplorerDAO;
-import gov.jbb.missaonascente.dao.LoginRequest;
 import gov.jbb.missaonascente.model.Explorer;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -16,6 +22,9 @@ public class LoginController {
     private boolean action = false;
     private boolean response;
     private static final String PREF_NAME = "MainActivityPreferences";
+
+    private DatabaseReference rootReference = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference explorersReference = rootReference.child(ExplorerDAO.TABLE);
 
     public LoginController() {
         explorer = new Explorer();
@@ -38,8 +47,8 @@ public class LoginController {
         return true;
     }
 
-    public void doLogin(final String email, String password, final Context context){
-        Explorer explorerFromLogin = new Explorer();
+    public void doLogin(final String email, final String password, final Context context){
+        final Explorer explorerFromLogin = new Explorer();
         explorerFromLogin.setEmail(email);
 
         try {
@@ -48,22 +57,28 @@ public class LoginController {
             e.printStackTrace();
         }
 
-        LoginRequest loginRequest = new LoginRequest(explorerFromLogin.getEmail(), explorerFromLogin.getPassword());
-        loginRequest.request(context, new LoginRequest.Callback() {
+        DatabaseReference newExplorerReference = explorersReference.child(explorerFromLogin.firebaseEmail());
+
+        newExplorerReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void callbackResponse(boolean response) {
-                setResponse(response);
-                if(response){
-                    saveFile(email, context);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                setResponse(dataSnapshot.exists());
+                if (dataSnapshot.exists()) {
+                    Explorer explorer = dataSnapshot.getValue(Explorer.class);
+                    if (explorer.getPassword().equals(explorerFromLogin.getPassword())) {
+                        saveFile(email, context);
+                    }else{
+                        setResponse(false);
+                    }
 
-                    /*MainController mainController = new MainController();
-                    mainController.checkIfUpdateIsNeeded(context);*/
-
-                    //----------------------------------------------------------------
-                    new ExplorerController().updateElementExplorerTable(context, email);
-                    new AchievementController(context).updateAchievementExplorerTable(context, email);
+                } else {
+                    Log.d("DB", "Usuário não existe");
                 }
+
                 setAction(true);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError){
             }
         });
 
