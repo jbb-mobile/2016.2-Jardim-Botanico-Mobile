@@ -1,5 +1,6 @@
 package gov.jbb.missaonascente.view;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -43,5 +44,13 @@ public class RankingScreenActivity extends AppCompatActivity {
             ListView rankingListView = (ListView)findViewById(R.id.ranking);
             rankingListView.setAdapter(adapter);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent mainScreenIntent = new Intent(RankingScreenActivity.this, MainScreenActivity.class);
+        RankingScreenActivity.this.startActivity(mainScreenIntent);
+        finish();
     }
 }
