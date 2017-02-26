@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import gov.jbb.missaonascente.R;
 import gov.jbb.missaonascente.controller.BooksController;
@@ -18,6 +19,7 @@ public class AlmanacScreenActivity extends AppCompatActivity implements View.OnC
     private ImageButton blueBook;
     private GridView gridView;
     private BooksController booksController;
+    private TextView zeroElements;
 
     protected void onCreate(Bundle savedInstanceState) {
         int currentPeriod;
@@ -31,20 +33,31 @@ public class AlmanacScreenActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_almanac_screen);
         initViews();
 
+        CustomAdapter adapter;
+
         switch (currentPeriod){
             case 1:
-                gridView.setAdapter(new CustomAdapter(this,booksController, 0));
+                adapter = new CustomAdapter(this,booksController, 0);
+                gridView.setAdapter(adapter);
+                zeroElements.setText(adapter.getCount() == 0 ? getResources().getString(R.string.zero_elements) : "");
+
                 orangeBook.setImageResource(R.drawable.book_icon_open_orange);
                 orangeBook.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_grid_background, null));
                 break;
             case 2:
-                gridView.setAdapter(new CustomAdapter(this,booksController, 1));
+                adapter = new CustomAdapter(this,booksController, 1);
+                gridView.setAdapter(adapter);
+                zeroElements.setText(adapter.getCount() == 0 ? getResources().getString(R.string.zero_elements) : "");
+
                 greenBook.setImageResource(R.drawable.book_icon_open_green);
                 greenBook.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_grid_background, null));
 
                 break;
             case 3:
-                gridView.setAdapter(new CustomAdapter(this,booksController, 2));
+                adapter = new CustomAdapter(this,booksController, 2);
+                gridView.setAdapter(adapter);
+                zeroElements.setText(adapter.getCount() == 0 ? getResources().getString(R.string.zero_elements) : "");
+
                 blueBook.setImageResource(R.drawable.book_icon_open_blue);
                 blueBook.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_grid_background, null));
                 break;
@@ -53,6 +66,8 @@ public class AlmanacScreenActivity extends AppCompatActivity implements View.OnC
 
     private void initViews(){
         gridView = (GridView) findViewById(R.id.gridView);
+
+        zeroElements = (TextView) findViewById(R.id.zeroElements);
 
         orangeBook=(ImageButton) findViewById(R.id.orangeBook);
         orangeBook.setOnClickListener(this);
@@ -64,6 +79,7 @@ public class AlmanacScreenActivity extends AppCompatActivity implements View.OnC
         blueBook.setOnClickListener(this);
     }
 
+    @Override
     public void onBackPressed() {
         super.onBackPressed();
         Intent mainScreenIntent = new Intent(AlmanacScreenActivity.this, MainScreenActivity.class);
@@ -71,22 +87,43 @@ public class AlmanacScreenActivity extends AppCompatActivity implements View.OnC
         finish();
     }
 
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+
+        gridView = null;
+        orangeBook = null;
+        blueBook = null;
+        greenBook = null;
+        zeroElements = null;
+    }
+
     public void onClick(View v) {
+        CustomAdapter adapter;
         switch (v.getId()) {
             case R.id.orangeBook:
-                gridView.setAdapter(new CustomAdapter(this, booksController, 0));
+                adapter = new CustomAdapter(this,booksController, 0);
+                gridView.setAdapter(adapter);
+                zeroElements.setText(adapter.getCount() == 0 ? getResources().getString(R.string.zero_elements) : "");
+
                 setDefaultBooks();
                 orangeBook.setImageResource(R.drawable.book_icon_open_orange);
                 orangeBook.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_grid_background, null));
                 break;
             case R.id.greenBook:
-                gridView.setAdapter(new CustomAdapter(this, booksController, 1));
+                adapter = new CustomAdapter(this,booksController, 1);
+                gridView.setAdapter(adapter);
+                zeroElements.setText(adapter.getCount() == 0 ? getResources().getString(R.string.zero_elements) : "");
+
                 setDefaultBooks();
                 greenBook.setImageResource(R.drawable.book_icon_open_green);
                 greenBook.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_grid_background, null));
                 break;
             case R.id.blueBook:
-                gridView.setAdapter(new CustomAdapter(this, booksController, 2));
+                adapter = new CustomAdapter(this,booksController, 0);
+                gridView.setAdapter(adapter);
+                zeroElements.setText(adapter.getCount() == 0 ? getResources().getString(R.string.zero_elements) : "");
+
                 setDefaultBooks();
                 blueBook.setImageResource(R.drawable.book_icon_open_blue);
                 blueBook.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_grid_background, null));
