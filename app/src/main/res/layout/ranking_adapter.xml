@@ -6,28 +6,31 @@
     android:background="@drawable/background_screens">
 
     <LinearLayout
+        android:id="@+id/rankingTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:orientation="horizontal"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:padding="5dp">
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:src="@drawable/trofeu"
-            android:layout_weight="4"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_weight="3"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="false"/>
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="6"
-            android:text="@string/rankingTitle"
+            android:layout_height="50dp"
+            android:layout_weight="5"
+            android:text="@string/ranking"
             android:textColor="@android:color/white"
             android:textSize="40dp"
             android:textStyle="bold"
-            android:layout_gravity="center_horizontal|center_vertical"/>
+            android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
 

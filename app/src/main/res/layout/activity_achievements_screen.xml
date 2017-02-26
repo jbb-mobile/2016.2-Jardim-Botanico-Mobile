@@ -23,11 +23,11 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="9"
             android:text="@string/achievements"
             android:textColor="@android:color/white"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"/>
 

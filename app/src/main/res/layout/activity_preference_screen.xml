@@ -6,14 +6,34 @@
     android:background="@drawable/background_screens"
     tools:context="gov.jbb.missaonascente.view.PreferenceScreenActivity">
 
-    <TextView
-        android:id="@+id/editAccountTextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/preferenceTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/titleEditAccount"
-        android:layout_marginTop="25dp"
-        android:layout_centerHorizontal="true" />
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/icon_preferences_white"
+            android:layout_weight="3"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="false"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="10"
+            android:text="@string/preference"
+            android:textColor="@android:color/white"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/information"
@@ -21,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
         android:background="@drawable/texts_border"
-        android:layout_below="@id/editAccountTextView">
+        android:layout_below="@id/preferenceTitle">
 
         <TextView
             android:id="@+id/nicknameShow"
