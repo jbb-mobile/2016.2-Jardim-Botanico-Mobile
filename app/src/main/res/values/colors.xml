@@ -16,6 +16,7 @@
     <!-- Additional colors -->
     <color name="colorGreen">#21B684</color>
     <color name="colorGreenDark">#13845e</color>
+    <color name="colorGreenDarker">#0e563e</color>
     <color name="colorTransparent">#00000000</color>
     <color name="colorElementHistory">#3cba01</color>
     <color name="colorBackgroundElementHistory">#22ff00</color>
