@@ -70,7 +70,7 @@ public class RegisterElementController {
         booksController.currentPeriod();
         currentBookPeriod = booksController.getCurrentPeriod();
 
-        if(currentBook == currentBookPeriod ) {
+        if(currentBook == currentBookPeriod) {
             try {
                 elementDAO.insertElementExplorer(email, catchCurrentDate, qrCodeNumber, EMPTY_STRING);
                 newScore = element.getElementScore();
@@ -105,7 +105,7 @@ public class RegisterElementController {
                 throw sqlException;
             }
         }else{
-            throw new IllegalArgumentException("Período Inválido");
+            throw new IllegalArgumentException(context.getString(R.string.invalidPeriod));
         }
     }
 

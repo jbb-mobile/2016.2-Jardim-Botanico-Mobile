@@ -120,7 +120,7 @@ public class AlmanacScreenActivity extends AppCompatActivity implements View.OnC
                 greenBook.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_grid_background, null));
                 break;
             case R.id.blueBook:
-                adapter = new CustomAdapter(this,booksController, 0);
+                adapter = new CustomAdapter(this,booksController, 2);
                 gridView.setAdapter(adapter);
                 zeroElements.setText(adapter.getCount() == 0 ? getResources().getString(R.string.zero_elements) : "");
 
