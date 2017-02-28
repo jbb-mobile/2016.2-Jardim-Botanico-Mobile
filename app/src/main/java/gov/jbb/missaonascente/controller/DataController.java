@@ -2,7 +2,6 @@ package gov.jbb.missaonascente.controller;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.database.SQLException;
 
 import java.io.InputStream;
 import java.util.Scanner;
@@ -23,32 +22,54 @@ public class DataController {
     private AchievementDAO achievementDAO;
     private ElementDAO elementDAO;
 
-    public boolean isLoaded(Context context){
+    public boolean isQuestionsLoaded(Context context){
         questionDAO = new QuestionDAO(context);
 
-        try {
-            if (questionDAO.countAllQuestions() > 0)
+        if (questionDAO.countQuestions() > 0)
                 return true;
-        }catch (SQLException e){
-            return false;
-        }
+
+        return false;
+    }
+
+    public boolean isElementsLoaded(Context context){
+        elementDAO = new ElementDAO(context);
+
+        if (elementDAO.countElements() > 0)
+            return true;
+
+        return false;
+    }
+
+
+    public boolean isAchievementsLoaded(Context context){
+        achievementDAO = new AchievementDAO(context);
+
+        if (achievementDAO.countAchievements() > 0)
+            return true;
 
         return false;
     }
 
     public boolean loadData (Context context){
-        if (isLoaded(context))
+
+        if (isQuestionsLoaded(context))
             return false;
+        else {
+            alternativeDAO = new AlternativeDAO(context);
+            getQuestionsAndAlternatives(context, context.getResources().getIdentifier("tabela_questoes", "raw", context.getPackageName()));
+        }
 
-        alternativeDAO = new AlternativeDAO(context);
-        achievementDAO = new AchievementDAO(context);
-        elementDAO = new ElementDAO(context);
+        if (isElementsLoaded(context))
+            return false;
+        else {
+            getElements(context, context.getResources().getIdentifier("tabela_elementos", "raw", context.getPackageName()));
+        }
 
-        getQuestionsAndAlternatives(context, context.getResources().getIdentifier("tabela_questoes", "raw", context.getPackageName()));
-
-        getAchievements(context, context.getResources().getIdentifier("tabela_conquistas", "raw", context.getPackageName()));
-
-        getElements(context, context.getResources().getIdentifier("tabela_elementos", "raw", context.getPackageName()));
+        if (isElementsLoaded(context))
+            return false;
+        else {
+            getAchievements(context, context.getResources().getIdentifier("tabela_conquistas", "raw", context.getPackageName()));
+        }
 
         return true;
     }
@@ -75,8 +96,8 @@ public class DataController {
 
             questionDAO.insertQuestion(new Question(idQuestion, description, correctAnswer, 4));
 
-            for (int i = 1; i <= alternativeLetters.length; ++i) {
-                Alternative alternative = new Alternative((i * idQuestion), alternativeLetters[i-1], alternatives[i-1], idQuestion);
+            for (int i = 0; i < alternativeLetters.length; ++i) {
+                Alternative alternative = new Alternative((idQuestion * 4) + i, alternativeLetters[i], alternatives[i], idQuestion);
                 alternativeDAO.insertAlternative(alternative);
             }
         }
@@ -115,13 +136,14 @@ public class DataController {
             String defaultImage	= scanner.next().trim();
             int idBook = Integer.parseInt(scanner.next().trim());
             String nameElement = scanner.next().trim();
-            int x = Integer.parseInt(scanner.next().trim());
-            int y = Integer.parseInt(scanner.next().trim());
             String textDescription = scanner.next().trim();
             int history = Integer.parseInt(scanner.next().trim());
-            String historyMessage  = scanner.next().trim();
 
-            elementDAO.insertElement(new Element(idElement, qrCodeNumber, elementScore, defaultImage, nameElement, idBook, textDescription, x, y, energeticValue, history, historyMessage));
+            String historyMessage = "";
+            if(history != 0)
+                historyMessage = scanner.next().trim();
+
+            elementDAO.insertElement(new Element(idElement, qrCodeNumber, elementScore, defaultImage, nameElement, idBook, textDescription, energeticValue, history, historyMessage));
         }
     }
 
