@@ -3,6 +3,7 @@ package gov.jbb.missaonascente.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -247,5 +248,12 @@ public class AchievementDAO extends SQLiteOpenHelper {
 
     public void deleteAllAchievementsFromAchievementExplorer(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("DELETE FROM " + AchievementDAO.TABLE_ASSOCIATE);
+    }
+
+    public long countAchievements() {
+        SQLiteDatabase dataBase = getReadableDatabase();
+
+        long numberOfRows = DatabaseUtils.queryNumEntries(dataBase, TABLE);
+        return  numberOfRows;
     }
 }

@@ -3,6 +3,7 @@ package gov.jbb.missaonascente.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -153,5 +154,13 @@ public class QuestionDAO extends SQLiteOpenHelper {
         cursor.close();
 
         return numberOfQuestions;
+    }
+
+    public long countQuestions() {
+        SQLiteDatabase dataBase = getReadableDatabase();
+
+        long numberOfRows = DatabaseUtils.queryNumEntries(dataBase, TABLE);
+
+        return  numberOfRows;
     }
 }
