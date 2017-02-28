@@ -80,7 +80,7 @@ public class QuestionAdapter extends BaseAdapter {
         holder.alternativeText.setText(alternativeList.get(position).getAlternativeDescription());
         String userAnswer = alternativeList.get(position).getAlternativeLetter();
         String correctAnswer = question.getCorrectAnswer();
-        if(userAnswer.equals(correctAnswer)) {
+        if(userAnswer.equalsIgnoreCase(correctAnswer)) {
             holder.alternativeText.findViewById(R.id.choice).setBackground(ContextCompat.getDrawable(getContext(), correctColor));
         } else {
             holder.alternativeText.findViewById(R.id.choice).setBackground(ContextCompat.getDrawable(getContext(), wrongColor));
@@ -93,7 +93,7 @@ public class QuestionAdapter extends BaseAdapter {
 
                 int isRight;
                 Log.d("----Question----","["+ userAnswer +"] ["+ correctAnswer +"]");
-                if(userAnswer.equals(correctAnswer)){
+                if(userAnswer.equalsIgnoreCase(correctAnswer)){
                     isRight = 1;
                     mainScreenActivity.questionEnergy();
                     mainScreenActivity.callProfessor("Parabéns, você acertou!");
