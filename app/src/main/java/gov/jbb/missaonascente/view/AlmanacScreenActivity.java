@@ -41,6 +41,7 @@ public class AlmanacScreenActivity extends AppCompatActivity implements View.OnC
                 gridView.setAdapter(adapter);
                 zeroElements.setText(adapter.getCount() == 0 ? getResources().getString(R.string.zero_elements) : "");
 
+                setDefaultBooks();
                 orangeBook.setImageResource(R.drawable.book_icon_open_orange);
                 orangeBook.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_grid_background, null));
                 break;
@@ -49,6 +50,7 @@ public class AlmanacScreenActivity extends AppCompatActivity implements View.OnC
                 gridView.setAdapter(adapter);
                 zeroElements.setText(adapter.getCount() == 0 ? getResources().getString(R.string.zero_elements) : "");
 
+                setDefaultBooks();
                 greenBook.setImageResource(R.drawable.book_icon_open_green);
                 greenBook.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_grid_background, null));
 
@@ -58,6 +60,7 @@ public class AlmanacScreenActivity extends AppCompatActivity implements View.OnC
                 gridView.setAdapter(adapter);
                 zeroElements.setText(adapter.getCount() == 0 ? getResources().getString(R.string.zero_elements) : "");
 
+                setDefaultBooks();
                 blueBook.setImageResource(R.drawable.book_icon_open_blue);
                 blueBook.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_grid_background, null));
                 break;
