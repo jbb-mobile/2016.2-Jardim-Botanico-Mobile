@@ -45,9 +45,7 @@ public class MainController {
 
     public void downloadDataFirstTime(Context context, SharedPreferences settings){
         if(settings.getString(MAIN_SCREEN_FIRST_TIME, null) == null){
-            DataController dataController = new DataController();
-            dataController.loadData(context);
-            //checkIfUpdateIsNeeded(context);
+            checkIfUpdateIsNeeded(context);
             SharedPreferences.Editor editor = settings.edit();
             editor.putString(MAIN_SCREEN_FIRST_TIME, MAIN_SCREEN_BOOLEAN);
             editor.apply();
