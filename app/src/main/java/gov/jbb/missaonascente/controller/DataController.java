@@ -75,10 +75,8 @@ public class DataController {
 
             questionDAO.insertQuestion(new Question(idQuestion, description, correctAnswer, 4));
 
-            for (int i = 1; i <= alternativeLetters.length; ++i) {
-                Alternative alternative = new Alternative((i * idQuestion), alternativeLetters[i-1], alternatives[i-1], idQuestion);
-                alternativeDAO.insertAlternative(alternative);
-            }
+            for (int i = 0; i < alternativeLetters.length; ++i)
+                alternativeDAO.insertAlternative(new Alternative((i * idQuestion), alternativeLetters[i], alternatives[i], idQuestion));
         }
     }
 
