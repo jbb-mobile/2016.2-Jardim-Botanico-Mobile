@@ -3,7 +3,6 @@ package gov.jbb.missaonascente.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
@@ -518,12 +517,5 @@ public class ElementDAO extends SQLiteOpenHelper {
         SQLiteDatabase database = getWritableDatabase();
         database.execSQL("UPDATE " + TABLE + " SET " + COLUMN_ELEMENT_VERSION + " = " + version + " WHERE " +
                 COLUMN_IDELEMENT + " = " + element.getIdElement());
-    }
-
-    public long countElements() {
-        SQLiteDatabase dataBase = getReadableDatabase();
-
-        long numberOfRows = DatabaseUtils.queryNumEntries(dataBase, TABLE);
-        return  numberOfRows;
     }
 }
