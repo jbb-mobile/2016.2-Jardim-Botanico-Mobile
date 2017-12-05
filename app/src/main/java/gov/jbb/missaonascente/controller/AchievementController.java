@@ -5,20 +5,15 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteConstraintException;
 import android.util.Log;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import gov.jbb.missaonascente.R;
 import gov.jbb.missaonascente.dao.AchievementDAO;
 import gov.jbb.missaonascente.dao.AchievementExplorerRequest;
 import gov.jbb.missaonascente.dao.AchievementRequest;
 import gov.jbb.missaonascente.dao.ElementDAO;
-import gov.jbb.missaonascente.dao.ExplorerDAO;
 import gov.jbb.missaonascente.model.Achievement;
 import gov.jbb.missaonascente.model.Explorer;
 
@@ -26,10 +21,6 @@ public class AchievementController {
     private boolean action = false;
     private Context context;
     private boolean response;
-
-    private DatabaseReference rootReference = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference explorersReference = rootReference.child(ExplorerDAO.TABLE);
-    private DatabaseReference achievementExplorerReference = rootReference.child(AchievementDAO.TABLE_ASSOCIATE);
 
     public AchievementController(Context context){
         this.context = context;
@@ -98,7 +89,29 @@ public class AchievementController {
     }
 
     public void updateAchievementExplorerTable(final Context context, final String email){
-        //TODO update do parser de achievements
+
+        setAction(false);
+
+        final AchievementExplorerRequest achievementExplorerRequest = new AchievementExplorerRequest(email);
+
+        achievementExplorerRequest.requestRetrieveAchievements(context, new AchievementExplorerRequest.Callback() {
+            @Override
+            public void callbackResponse(boolean response) {
+            }
+
+            @Override
+            public void callbackResponse(List<Achievement> achievements) {
+                AchievementDAO database = new AchievementDAO(context);
+                database.deleteAllAchievementsFromAchievementExplorer(database.getWritableDatabase());
+
+                for(Achievement achievement : achievements){
+                    database.insertAchievementExplorer(achievement.getIdAchievement(), email);
+                    Log.d("TESTE++++++", String.valueOf(achievement.getIdAchievement()) + email);
+                }
+
+                setAction(true);
+            }
+        });
     }
 
     public void sendAchievementsExplorerTable(final Context context, final String email){
@@ -201,9 +214,9 @@ public class AchievementController {
                 AchievementDAO achievementDAO = new AchievementDAO(context);
                 achievementDAO.insertAchievementExplorer(achievement.getIdAchievement(), explorer.getEmail());
 
-                achievementExplorerReference
-                        .child(explorer.firebaseEmail() + ", " + achievement.getIdAchievement())
-                        .setValue(true);
+                if(MainController.checkIfUserHasInternet(context)){
+                    insertAchievementExplorer(context, explorer.getEmail(), achievement.getIdAchievement());
+                }
             }
         }
 

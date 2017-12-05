@@ -23,10 +23,6 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class MainController {
-    //TODO deixar login pelo nickname
-    //TODO deixar login como unique por causa do ranking (?)
-    //TODO tirar VERSION com parcimônia
-
     private String code;
     private boolean action = false;
     private boolean response;
@@ -144,6 +140,16 @@ public class MainController {
 
         ArrayList<Achievement> newAchievements =
                 achievementController.checkForNewElementAchievements(historyController, explorer);
+
+        return newAchievements;
+    }
+
+    //TODO setar onde é respondida a questão
+    public ArrayList<Achievement> checkForNewQuestionAchievements(Context context, Explorer explorer) {
+        AchievementController achievementController = new AchievementController(context);
+
+        ArrayList<Achievement> newAchievements =
+                achievementController.checkForNewQuestionAchievements(explorer);
 
         return newAchievements;
     }

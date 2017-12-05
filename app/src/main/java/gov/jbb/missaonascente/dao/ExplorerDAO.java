@@ -29,7 +29,7 @@ public class ExplorerDAO extends SQLiteOpenHelper{
     protected static String COLUMN_CORRECT_QUESTIONS = "correctQuestions";
 
 
-    public static String TABLE ="EXPLORER";
+    protected static String TABLE ="EXPLORER";
 
     public ExplorerDAO(Context context) {
         super(context,NAME_DB, null, VERSION);

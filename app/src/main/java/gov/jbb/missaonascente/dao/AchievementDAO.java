@@ -17,7 +17,7 @@ public class AchievementDAO extends SQLiteOpenHelper {
     private static final int VERSION = 1;
 
     protected static String TABLE = "ACHIEVEMENT";
-    public static String TABLE_ASSOCIATE = "ACHIEVEMENT_EXPLORER";
+    protected static String TABLE_ASSOCIATE = "ACHIEVEMENT_EXPLORER";
 
     protected static String COLUMN_ID_ACHIEVEMENT = "idAchievement";
     protected static String COLUMN_NAME_ACHIEVEMENT = "nameAchievement";
