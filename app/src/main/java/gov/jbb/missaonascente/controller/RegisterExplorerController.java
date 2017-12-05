@@ -42,30 +42,19 @@ public class RegisterExplorerController {
 
             int errorRegister = -1;
 
-            if (explorerDAO.insertExplorer(getExplorer()) == errorRegister) {
-                throw new SQLiteConstraintException();
-            }
-
             Log.i("DB", "Adding to database");
-            DatabaseReference newExplorerReference = explorersReference.child(explorer.getFirebaseEmail());
+            DatabaseReference newExplorerReference = explorersReference.child(explorer.getNickname());
+
 
             newExplorerReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    setResponse(!dataSnapshot.exists());
                     if(!dataSnapshot.exists()){
-                        explorersReference.child(explorer.getFirebaseEmail()).setValue(explorer);
+                        explorersReference.child(explorer.getNickname()).setValue(explorer);
                         Log.d("DB", "Usuário novo: " + explorer.getNickname());
-
-                        SharedPreferences preferencesRegister = context.getSharedPreferences(FIRST_EXPLORER_LOGIN, 0);
-                        SharedPreferences.Editor editor = preferencesRegister.edit();
-                        editor.putBoolean(EXPLORER_REGISTER, true);
-                        editor.apply();
                     }else{
                         Log.d("DB", "Usuário já existe: " + explorer.getNickname());
                     }
-
-                    setAction(true);
                 }
 
                 @Override
@@ -74,9 +63,13 @@ public class RegisterExplorerController {
                 }
             });
 
+
             Log.i("DB", "Added to database");
 
-            /*
+            if (explorerDAO.insertExplorer(getExplorer()) == errorRegister) {
+                throw new SQLiteConstraintException();
+            }
+
             RegisterRequest registerRequest = new RegisterRequest(getExplorer().getNickname(),
                     getExplorer().getPassword(),
                     getExplorer().getEmail());
