@@ -11,6 +11,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import gov.jbb.missaonascente.dao.ExplorerDAO;
+import gov.jbb.missaonascente.dao.LoginRequest;
 import gov.jbb.missaonascente.model.Explorer;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -82,6 +83,21 @@ public class LoginController {
             }
         });
 
+       /* LoginRequest loginRequest = new LoginRequest(explorerFromLogin.getEmail(), explorerFromLogin.getPassword());
+        loginRequest.request(context, new LoginRequest.Callback() {
+            @Override
+            public void callbackResponse(boolean response) {
+                setResponse(response);
+                if(response){
+                    saveFile(email, context);
+
+                    //----------------------------------------------------------------
+                    new ExplorerController().updateElementExplorerTable(context, email);
+                    new AchievementController(context).updateAchievementExplorerTable(context, email);
+                }
+                setAction(true);
+            }
+        });*/
     }
 
     public boolean isAction() {
