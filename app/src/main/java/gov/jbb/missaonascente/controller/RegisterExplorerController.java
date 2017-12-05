@@ -46,14 +46,14 @@ public class RegisterExplorerController {
             }
 
             Log.i("DB", "Adding to database");
-            DatabaseReference newExplorerReference = explorersReference.child(explorer.firebaseEmail());
+            DatabaseReference newExplorerReference = explorersReference.child(explorer.getFirebaseEmail());
 
             newExplorerReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     setResponse(!dataSnapshot.exists());
                     if(!dataSnapshot.exists()){
-                        explorersReference.child(explorer.firebaseEmail()).setValue(explorer);
+                        explorersReference.child(explorer.getFirebaseEmail()).setValue(explorer);
                         Log.d("DB", "Usuário novo: " + explorer.getNickname());
 
                         SharedPreferences preferencesRegister = context.getSharedPreferences(FIRST_EXPLORER_LOGIN, 0);

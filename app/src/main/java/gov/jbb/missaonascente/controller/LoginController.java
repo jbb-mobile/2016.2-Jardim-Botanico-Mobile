@@ -57,7 +57,7 @@ public class LoginController {
             e.printStackTrace();
         }
 
-        DatabaseReference newExplorerReference = explorersReference.child(explorerFromLogin.firebaseEmail());
+        DatabaseReference newExplorerReference = explorersReference.child(explorerFromLogin.getFirebaseEmail());
 
         newExplorerReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
