@@ -314,6 +314,7 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
         }
 
         String code = mainController.getCode();
+        if(code != null) code = code.replaceAll("\\D+", "");
 
         if(registerElementFragment != null){
             RegisterElementController registerElementController = registerElementFragment.getController();

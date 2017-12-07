@@ -192,6 +192,40 @@ public class ElementDAO extends SQLiteOpenHelper {
         return element;
     }
 
+
+    public Element findElementByQrCode (int code, int book) throws IllegalArgumentException{
+        SQLiteDatabase dataBase = getWritableDatabase();
+        Cursor cursor;
+        cursor = dataBase.query(TABLE, new String[] {COLUMN_IDELEMENT, COLUMN_NAME,
+                COLUMN_DEFAULTIMAGE, COLUMN_ELEMENTSCORE, COLUMN_QRCODENUMBER, COLUMN_TEXTDESCRIPTION,
+                COLUMN_SOUTH, COLUMN_WEST, COLUMN_ENERGETICVALUE, BookDAO.COLUMN_IDBOOK, COLUMN_HISTORY, COLUMN_HISTORYMESSAGE}, COLUMN_QRCODENUMBER + " = " + code + " AND " + BookDAO.COLUMN_IDBOOK + " = " + book, null, null, null, null);
+
+        Element element = new Element();
+        if(cursor.moveToFirst()){
+            element.setIdElement(cursor.getInt(cursor.getColumnIndex(COLUMN_IDELEMENT)));
+            element.setNameElement(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
+            element.setDefaultImage(cursor.getString(cursor.getColumnIndex(COLUMN_DEFAULTIMAGE)));
+            element.setElementScore(cursor.getInt(cursor.getColumnIndex(COLUMN_ELEMENTSCORE)));
+            element.setQrCodeNumber(cursor.getInt(cursor.getColumnIndex(COLUMN_QRCODENUMBER)));
+            element.setTextDescription(cursor.getString(cursor.getColumnIndex(COLUMN_TEXTDESCRIPTION)));
+            element.setIdBook(cursor.getInt(cursor.getColumnIndex(BookDAO.COLUMN_IDBOOK)));
+            element.setSouthCoordinate(cursor.getFloat(cursor.getColumnIndex(COLUMN_SOUTH)));
+            element.setWestCoordinate(cursor.getFloat(cursor.getColumnIndex(COLUMN_WEST)));
+            element.setEnergeticValue(cursor.getInt(cursor.getColumnIndex(COLUMN_ENERGETICVALUE)));
+            element.setHistory(cursor.getInt(cursor.getColumnIndex(COLUMN_HISTORY)));
+            element.setHistoryMessage(cursor.getString(cursor.getColumnIndex(COLUMN_HISTORYMESSAGE)));
+        }
+        else {
+            Log.d("Achou", "Nao achou " + code);
+            throw new IllegalArgumentException("Qr Code Inválido");
+        }
+
+        cursor.close();
+
+        return element;
+    }
+
+
     public List<Element> findElementsBook(int idBook){
         SQLiteDatabase dataBase = getWritableDatabase();
         Cursor cursor;

@@ -48,9 +48,13 @@ public class RegisterElementController {
 
         qrCodeNumber = Integer.parseInt(code);
 
+        BooksController booksController = new BooksController();
+        booksController.currentPeriod();
+        currentBookPeriod = booksController.getCurrentPeriod();
+
         elementDAO = new ElementDAO(context);
         explorerDAO = new ExplorerDAO(context);
-        element = elementDAO.findElementByQrCode(qrCodeNumber);
+        element = elementDAO.findElementByQrCode(qrCodeNumber, currentBookPeriod);
 
         String catchCurrentDate = getCurrentDate();
         currentBook = element.getIdBook();
@@ -58,10 +62,6 @@ public class RegisterElementController {
         Explorer explorer = loginController.getExplorer();
         email = explorer.getEmail();
         date = catchCurrentDate;
-
-        BooksController booksController = new BooksController();
-        booksController.currentPeriod();
-        currentBookPeriod = booksController.getCurrentPeriod();
 
         if(currentBook == currentBookPeriod) {
             try {
