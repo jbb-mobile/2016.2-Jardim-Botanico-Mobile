@@ -27,7 +27,7 @@ public class NotificationService extends FirebaseMessagingService {
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
             .setSmallIcon(R.drawable.icon_achievements)
-            .setLargeIcon(BitmapFactory.decodeResource(this.getResources(), R.drawable.ponto_34))
+            .setLargeIcon(BitmapFactory.decodeResource(this.getResources(), R.drawable.ponto30_agua))
             .setContentTitle(intent.getStringExtra("gcm.notification.title"))
             .setContentText(intent.getStringExtra("gcm.notification.body"))
             .setAutoCancel(true)
