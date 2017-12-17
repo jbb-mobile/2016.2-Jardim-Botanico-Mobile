@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_screens"
-    tools:context="gov.jbb.missaonascente.view.PreferenceScreenActivity">
+    tools:context="gov.jbb.jbbmobile.view.PreferenceScreenActivity">
 
     <LinearLayout
         android:id="@+id/preferenceTitle"

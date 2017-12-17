@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="gov.jbb.missaonascente">
+    package="gov.jbb.jbbmobile">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -39,13 +39,13 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".view.RegisterScreenActivity"
+            android:name="gov.jbb.jbbmobile.view.RegisterScreenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.LoginScreenActivity"
+            android:name="gov.jbb.jbbmobile.view.LoginScreenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.StartScreenActivity"
+            android:name="gov.jbb.jbbmobile.view.StartScreenActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,40 +54,40 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.MainScreenActivity"
+            android:name="gov.jbb.jbbmobile.view.MainScreenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.PreferenceScreenActivity"
+            android:name="gov.jbb.jbbmobile.view.PreferenceScreenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.ElementScreenActivity"
+            android:name="gov.jbb.jbbmobile.view.ElementScreenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.AlmanacScreenActivity"
+            android:name="gov.jbb.jbbmobile.view.AlmanacScreenActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.ReadQRCodeScreen"
+            android:name="gov.jbb.jbbmobile.view.ReadQRCodeScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.RankingScreenActivity"
+            android:name="gov.jbb.jbbmobile.view.RankingScreenActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.TutorialScreenActivity"
+            android:name="gov.jbb.jbbmobile.view.TutorialScreenActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name=".view.NotificationService">
+        <service android:name="gov.jbb.jbbmobile.view.NotificationService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".view.NotificationIDService">
+        <service android:name="gov.jbb.jbbmobile.view.NotificationIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <receiver android:name=".view.NotificationReceiver">
+        <receiver android:name="gov.jbb.jbbmobile.view.NotificationReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.DATE_CHANGED" />
             </intent-filter>
@@ -95,7 +95,7 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".controller.AppUpdateReceiver">
+        <receiver android:name="gov.jbb.jbbmobile.controller.AppUpdateReceiver">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
 
@@ -103,7 +103,7 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".controller.AppUpdateService">
+        <service android:name="gov.jbb.jbbmobile.controller.AppUpdateService">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
 
@@ -111,7 +111,7 @@
             </intent-filter>
         </service>
 
-        <receiver android:name=".controller.ExplorerUpdateReceiver">
+        <receiver android:name="gov.jbb.jbbmobile.controller.ExplorerUpdateReceiver">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
 
@@ -119,7 +119,7 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".controller.ExplorerUpdateService">
+        <service android:name="gov.jbb.jbbmobile.controller.ExplorerUpdateService">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
 
@@ -128,12 +128,12 @@
         </service>
 
         <activity
-            android:name=".view.AchievementsScreenActivity"
+            android:name="gov.jbb.jbbmobile.view.AchievementsScreenActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.MapActivity"
+        <activity android:name="gov.jbb.jbbmobile.view.MapActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".view.AboutActivity"
+        <activity android:name="gov.jbb.jbbmobile.view.AboutActivity"
             android:screenOrientation="portrait" />
     </application>
 </manifest>
