@@ -148,11 +148,11 @@ public class BooksController {
         systemMonth = Integer.valueOf(month);
 
         if(systemMonth > 10 || systemMonth < 3){
-            setCurrentPeriod(3);
+            setCurrentPeriod(1);
         }else if(systemMonth > 2 && systemMonth < 6){
             setCurrentPeriod(2);
         }else{
-            setCurrentPeriod(1);
+            setCurrentPeriod(3);
         }
     }
 

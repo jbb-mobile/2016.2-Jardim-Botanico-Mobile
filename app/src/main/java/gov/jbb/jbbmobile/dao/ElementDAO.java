@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import gov.jbb.jbbmobile.controller.BooksController;
 import gov.jbb.jbbmobile.model.Element;
 
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class ElementDAO extends SQLiteOpenHelper {
                 COLUMN_ENERGETICVALUE + " INTEGER NOT NULL, " +
                 BookDAO.COLUMN_IDBOOK + " INTEGER NOT NULL, " +
                 "CONSTRAINT " + TABLE + "_PK PRIMARY KEY (" + COLUMN_IDELEMENT + "), " +
-                "CONSTRAINT " + TABLE + "_UK UNIQUE (" + COLUMN_QRCODENUMBER + ") ," +
+                //"CONSTRAINT " + TABLE + "_UK UNIQUE (" + COLUMN_QRCODENUMBER + ") ," +
                 "CONSTRAINT "+ BookDAO.TABLE + "_" + TABLE + "_FK FOREIGN KEY (" + BookDAO.COLUMN_IDBOOK + ") REFERENCES " + BookDAO.TABLE + "(" + BookDAO.COLUMN_IDBOOK + "))");
     }
 
@@ -198,7 +199,7 @@ public class ElementDAO extends SQLiteOpenHelper {
         Cursor cursor;
         cursor = dataBase.query(TABLE, new String[] {COLUMN_IDELEMENT, COLUMN_NAME,
                 COLUMN_DEFAULTIMAGE, COLUMN_ELEMENTSCORE, COLUMN_QRCODENUMBER, COLUMN_TEXTDESCRIPTION,
-                COLUMN_SOUTH, COLUMN_WEST, COLUMN_ENERGETICVALUE, BookDAO.COLUMN_IDBOOK, COLUMN_HISTORY, COLUMN_HISTORYMESSAGE}, COLUMN_QRCODENUMBER + " = " + code + " AND " + BookDAO.COLUMN_IDBOOK + " = " + book, null, null, null, null);
+                COLUMN_SOUTH, COLUMN_WEST, COLUMN_ENERGETICVALUE, BookDAO.COLUMN_IDBOOK, COLUMN_HISTORY, COLUMN_HISTORYMESSAGE}, COLUMN_QRCODENUMBER + " = " + code + " AND " + BookDAO.COLUMN_IDBOOK + " == " + book, null, null, null, null);
 
         Element element = new Element();
         if(cursor.moveToFirst()){
@@ -410,7 +411,11 @@ public class ElementDAO extends SQLiteOpenHelper {
         SQLiteDatabase dataBase = getWritableDatabase();
         int insertReturn;
 
-        Element element = findElementByQrCode(qrCodeNumber);
+        BooksController booksController = new BooksController();
+        booksController.currentPeriod();
+        int currentBookPeriod = booksController.getCurrentPeriod();
+
+        Element element = findElementByQrCode(qrCodeNumber, currentBookPeriod);
 
         ContentValues data = getElementExplorerData(element.getIdElement(),email, date, userImage);
 

@@ -6,6 +6,7 @@ import android.content.ContextWrapper;
 import android.database.SQLException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Debug;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -54,6 +55,8 @@ public class RegisterElementController {
 
         elementDAO = new ElementDAO(context);
         explorerDAO = new ExplorerDAO(context);
+
+        Log.d("CurrentBook", "" + currentBookPeriod);
         element = elementDAO.findElementByQrCode(qrCodeNumber, currentBookPeriod);
 
         String catchCurrentDate = getCurrentDate();

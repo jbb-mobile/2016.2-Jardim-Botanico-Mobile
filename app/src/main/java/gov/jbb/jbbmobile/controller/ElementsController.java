@@ -46,7 +46,12 @@ public class ElementsController {
         int qrCodeNumber = Integer.parseInt(code);
         Element element;
 
-        element = elementDAO.findElementByQrCode(qrCodeNumber);
+        BooksController booksController = new BooksController();
+        booksController.currentPeriod();
+
+        currentBookPeriod = booksController.getCurrentPeriod();
+
+        element = elementDAO.findElementByQrCode(qrCodeNumber, currentBookPeriod);
         element.setDate();
         String catchCurrentDate = element.getCatchDate();
         currentBook = element.getIdBook();
@@ -54,11 +59,6 @@ public class ElementsController {
         LoginController loginController = new LoginController();
         loginController.loadFile(context);
         String emailExplorer = loginController.getExplorer().getEmail();
-
-        BooksController booksController = new BooksController();
-        booksController.currentPeriod();
-
-        currentBookPeriod = booksController.getCurrentPeriod();
 
         if(currentBook == currentBookPeriod )
             elementDAO.insertElementExplorer(emailExplorer, catchCurrentDate, qrCodeNumber,null);
