@@ -218,6 +218,9 @@ public class ElementDAO extends SQLiteOpenHelper {
         }
         else {
             Log.d("Achou", "Nao achou " + code);
+            Element genericElement = findElementByQrCode (code);
+            if(genericElement != null)
+                throw new IllegalArgumentException("Ops, esse elemento pertence a outra fase! Venha em outro período para registrá-lo!");
             throw new IllegalArgumentException("Qr Code Inválido");
         }
 
