@@ -173,15 +173,21 @@ public class TutorialScreenActivity extends AppCompatActivity implements View.On
                 moveShowCaseCircle(aboutOptionTutorial,getString(R.string.aboutOption),getString(R.string.aboutOptionTutorial),ShowcaseView.ABOVE_SHOWCASE);
                 break;
             case 26:
-                tutorialCurrentImage.setBackgroundColor(0x00000000);
-                tutorialCurrentImage.setBorderWidth((float) 0);
+                tutorialCurrentImage.setVisibility(View.INVISIBLE);
+                showcaseView.setTarget(Target.NONE);
+                showcaseView.setContentTitle(getString(R.string.advice));
+                showcaseView.setContentText(getString(R.string.adviceMessage));
+                showcaseView.setStyle(R.style.Final);
+                showcaseView.setButtonText(getString(R.string.next));
+                break;
+            case 27:
                 showcaseView.setTarget(Target.NONE);
                 showcaseView.setContentTitle(getString(R.string.tutorialCompleted));
                 showcaseView.setContentText(getString(R.string.tutorialCompletedMessage));
                 showcaseView.setStyle(R.style.Final);
                 showcaseView.setButtonText(getString(R.string.theEnd));
                 break;
-            case 27:
+            case 28:
                 Intent mainScreenIntent = new Intent(TutorialScreenActivity.this, MainScreenActivity.class);
                 TutorialScreenActivity.this.startActivity(mainScreenIntent);
                 finish();

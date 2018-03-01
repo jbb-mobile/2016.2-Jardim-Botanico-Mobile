@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +71,7 @@ public class ProfessorFragment extends Fragment {
         dialogs.remove(0);
 
         professorDialog = (TextView) view.findViewById(R.id.professorDialog);
-        professorDialog.setText(currentDialog);
+        professorDialog.setText(Html.fromHtml(currentDialog));
 
         drawable = drawables.get(0);
         drawables.remove(0);

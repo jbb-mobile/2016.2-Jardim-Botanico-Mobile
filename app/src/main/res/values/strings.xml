@@ -177,6 +177,8 @@
     <string name="tutorialOptionTutorial">Você está nessa opção, e pode acessar o tutorial através dela quando quiser!</string>
     <string name="aboutOption">Informações Sobre o App</string>
     <string name="aboutOptionTutorial">E por último, aqui você pode acessar algumas informações adicionais sobre o Missão Nascente!</string>
+    <string name="advice">Recomendações</string>
+    <string name="adviceMessage">Agora, algumas recomendações gerais antes de começarmos nossa aventura: traga sua garrafinha de água, venha com roupas fechadas e use sapatos confortáveis.\n\nTraga também pelo menos um assistente (um amigo, seus pais ou professor)! Além de mais divertido, vocês podem se ajudar quando tiverem dúvidas ou estiverem cansados.</string>
     <string name="tutorialCompleted">Tutorial Concluído</string>
     <string name="tutorialCompletedMessage">Tenha uma espetacular aventura, Explorador(a)!</string>
     <string name="theEnd">Fim</string>

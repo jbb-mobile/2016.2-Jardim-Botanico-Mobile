@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -62,7 +63,7 @@ public class ElementScreenActivity extends AppCompatActivity {
         Drawable drawable = RoundedBitmapDrawableFactory.create(elementImage.getResources(), image);
         elementImage.setImageDrawable(drawable);
         this.elementsName.setText(touchedElement.getNameElement());
-        this.elementsDescription.setText(touchedElement.getTextDescription());
+        this.elementsDescription.setText(Html.fromHtml(touchedElement.getTextDescription()));
         String catchDate =  this.catchDate.getText() + ": " + touchedElement.getCatchDate();
         this.catchDate.setText(catchDate);
     }
