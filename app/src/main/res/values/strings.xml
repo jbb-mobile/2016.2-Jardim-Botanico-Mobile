@@ -126,7 +126,7 @@
     <string name="tutorialSignOut">Deseja sair do tutorial?</string>
     <string name="initialMessageTutorial">Bem vindo(a) ao nosso tutorial!\nAgora você irá aprender mais sobre como utilizar o aplicativo!</string>
     <string name="energyBar">Barra de Energia</string>
-    <string name="energyBarTutorial">Essa é a sua energia, acompanhe quantos elemento pode registrar através dela!\nLembre-se que quando estiver sem energia poderá responder uma questão para tentar recuperar uma parte dela!</string>
+    <string name="energyBarTutorial">Essa é a sua energia, acompanhe quantos elemento podem ser registrados através dela!\nLembre-se que quando estiver sem energia poderá responder uma questão para tentar recuperar uma parte dela!</string>
     <string name="question">Questão</string>
     <string name="questionTutorial">Aqui você pode responder uma questão para tentar recuperar parte da energia perdida, caso esteja com menos que o necessário para registrar um elemento!</string>
     <string name="registerTutorialTitle">Botão de Registro</string>
@@ -142,7 +142,7 @@
     <string name="leafScore">Pontuação</string>
     <string name="leafScoreTutorial">Aqui você pode acompanhar sua quantidade de pontos, ou seja, a soma de todos os pontos obtidos no decorrer da trilha!</string>
     <string name="map">Mapa de Progresso</string>
-    <string name="mapTutorial">Aqui você pode acompanhar seu progresso perante o elementos da história durante a trillha de acordo com o período!\nLembre-se que ele só aparece no momento em que você registrar o primeiro elemento da história!</string>
+    <string name="mapTutorial">Aqui você pode acompanhar seu progresso perante os elementos da história durante a trillha de acordo com o período!\nLembre-se que ele só aparece no momento em que você registrar o primeiro elemento da história!</string>
     <string name="almanac">Almanaque</string>
     <string name="almanacTutorial">Aqui você pode acessar todos os seus elementos já registrados, de modo organizado em seus respectivos livros!</string>
     <string name="almanacBook1">Livros do Almanaque</string>
@@ -186,8 +186,8 @@
     <!-- Alert in tutorial -->
 
     <!-- String related to about-->
-    <string name="aboutDescription">O Missão Nascente é um aplicativo para aqueles que gostam de se divertir e aprender ao mesmo tempo sobre as belezas que o nosso cerrado possui. Nele você registra elementos da trilha da Nascente do Corrégo Cabeça de Veado do Jardim Botânico de Brasília, vive uma história de caça aos elementos da trilha e interage com professores que explicam o que você precisa saber.\n\nAlém do mais, você responde questões para recarregar a sua energia da câmera responsável por identificar os QRCodes dos elementos. Isso porque encontrar elementos não é uma tarefa fácil, logo a cada registro a energia da sua câmera diminui. Mas não se preocupe, ela também carrega com o tempo.\n\n
-O aplicativo também tem outro recursos para motivar você, explorador do cerrado. Um ranking de comparação entre todos os melhores que passaram pela trilha e conquistas com o seu progresso também são oferecidos.</string>
+    <string name="aboutDescription">O Missão Nascente é um aplicativo para aqueles que gostam de se divertir e aprender ao mesmo tempo sobre as belezas que o nosso cerrado possui. Nele você registra elementos da trilha da Nascente do Córrego Cabeça de Veado do Jardim Botânico de Brasília, vive uma história de caça aos elementos da trilha e interage com professores que explicam o que você precisa saber.\n\nAlém do mais, você responde questões para recarregar a sua energia da câmera responsável por identificar os QR Codes dos elementos. Isso porque encontrar elementos não é uma tarefa fácil, logo a cada registro a energia da sua câmera diminui. Mas não se preocupe, ela também carrega com o tempo.\n\n
+O aplicativo também tem outros recursos para motivar você, explorador do cerrado. Um ranking de comparação entre todos os melhores que passaram pela trilha e conquistas com o seu progresso também são oferecidos.</string>
     <string name="aboutPartner">O aplicativo foi desenvolvido em parceria entre alunos de Engenharia de Software Universidade de Brasília com a equipe de Superintenência Técnica do Jardim Botânico de Brasília. </string>
     <string name="developers">Equipe de desenvolvedores (UnB)</string>
     <string name="devGroup">Allan Jeffrey \nHugo Alves \nIgor Gabriel \nJoão Paulo Soares \nJoão Vitor Araujo \nMateus Manuel \nRenata Soares \nRoger Lenke \nRonyell Henrique \nSabryna Sousa</string>

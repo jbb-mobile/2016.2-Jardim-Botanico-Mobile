@@ -59,10 +59,10 @@ public class ReadQRCodeScreen extends Activity implements DecoratedBarcodeView.T
                         Intent aboutIntent = new Intent(ReadQRCodeScreen.this, AboutActivity.class);
                         ReadQRCodeScreen.this.startActivity(aboutIntent);
                         return true;
-                    case R.id.mapIcon:
-                        Intent mapIntent = new Intent(ReadQRCodeScreen.this, MapActivity.class);
-                        ReadQRCodeScreen.this.startActivity(mapIntent);
-                        return true;
+//                    case R.id.mapIcon:
+//                        Intent mapIntent = new Intent(ReadQRCodeScreen.this, MapActivity.class);
+//                        ReadQRCodeScreen.this.startActivity(mapIntent);
+//                        return true;
                     default:
                         return false;
                 }
