@@ -1,29 +1,28 @@
 <resources>
-
     <!-- COMMON STRINGS IN APP-->
     <string name="appName">Missão Nascente</string>
     <string name="idElement">idElement</string>
 
     <!-- Strings related to validation-->
-    <string name="invalidPeriod">Período Inválido</string>
+    <string name="invalidPeriod">Temporada inválida</string>
     <string name="errorMessage">ERRO</string>
     <string name="passwordValidation">Senha inválida</string>
     <string name="nicknameValidation">Nickname inválido</string>
     <string name="noInternetConnection">Sem conexão com a internet!</string>
-    <string name="errorInvalidEmail">Esse endereço de email é inválido</string>
+    <string name="errorInvalidEmail">Esse endereço de email é inválido.</string>
     <string name="errorInvalidPassword">Senha muito curta</string>
     <string name="incorrectPassword">Senha incorreta</string>
-    <string name="errorFieldRequired">Campo deve ser preenchido</string>
+    <string name="errorFieldRequired">Este campo deve ser preenchido.</string>
 
     <!-- Strings related to name fields-->
     <string name="nickname">Nickname</string>
     <string name="password">Senha</string>
     <string name="confirmPassword">Confirme sua senha</string>
     <string name="editInformations">Editar informações</string>
-    <string name="explorer">Explorador(a),  </string>
-    <string name="welcomeExplorer">Bem vindo(a), </string>
+    <string name="explorer">Explorador(a),</string>
+    <string name="welcomeExplorer">Bem vindo(a),</string>
     <string name="OKMessage">OK</string>
-    <string name="cancelMessage">Cancel</string>
+    <string name="cancelMessage">Cancelar</string>
     <string name="yesMessage">Sim</string>
     <string name="noMessage">Não</string>
     <string name="preference">Preferências</string>
@@ -35,21 +34,21 @@
 
     <!-- Strings related to Start Screen Activity  -->
     <string name="noConnection">A conexão falhou!</string>
-    <string name="impossibleConnection">Impossivel conectar!</string>
+    <string name="impossibleConnection">Impossível conectar!</string>
 
     <!-- Strings related to Register Screen Activity  -->
-    <string name="nicknameValidationSize">Nickname deve ter mais de 6 caracteres</string>
-    <string name="passwordValidationSize">Senha deve ter mais de 6 caracteres</string>
-    <string name="passwordConfirmValidation">Senhas devem ser iguais</string>
-    <string name="invalidEmail">Email Invalido</string>
+    <string name="nicknameValidationSize">Nickname deve ter mais de 6 caracteres.</string>
+    <string name="passwordValidationSize">Senha deve ter mais de 6 caracteres.</string>
+    <string name="passwordConfirmValidation">Senhas devem ser iguais.</string>
+    <string name="invalidEmail">Email Inválido</string>
     <string name="userAlreadyExists">O usuário já está registrado!</string>
 
     <!-- Strings related to Ranking Screen Activity  -->
     <string name="rankingNoInternet">Você não possui internet para visualizar o ranking!</string>
 
     <!-- Strings related to Preference Screen Activity  -->
-    <string name="enterPassword">Coloque sua senha</string>
-    <string name="enterNickname">Coloque seu nickname</string>
+    <string name="enterPassword">Coloque sua senha.</string>
+    <string name="enterNickname">Coloque seu nickname.</string>
     <string name="deleteAccount">Deletar conta</string>
     <string name="askDeleteAccountConfirmaton">Tem certeza?</string>
     <string name="nicknameExists">Esse nickname já esta registrado!</string>
@@ -57,13 +56,13 @@
     <string name="signOutMessage">Você perderá o progresso do modo história. Ainda assim deseja sair?</string>
 
     <!-- Strings related to Login Screen Activity  -->
-    <string name="emailOrPasswordWrong">Email e/ou senha incorreto! </string>
+    <string name="emailOrPasswordWrong">Email e/ou senha incorreto!</string>
 
     <!-- Strings related to Main Screen Activity  -->
-    <string name="putNewNickname">Insira seu novo nickname</string>
-    <string name="existedElement">Você já possui este elemento! </string>
+    <string name="putNewNickname">Insira seu novo nickname.</string>
+    <string name="existedElement">Você já possui este elemento!</string>
     <string name="withoutEnergyMessage">Parece que sua energia acabou explorador!</string>
-    <string name="withoutEnergyMessage2">Responda a pergunta a seguir para ganhar mais energia! </string>
+    <string name="withoutEnergyMessage2">Responda a pergunta a seguir para ganhar mais energia!</string>
 
 
     <!-- Strings related to settings_menu.xml  -->
@@ -73,7 +72,7 @@
     <string name="tutorial">Tutorial</string>
 
     <!-- Strings related to activity_element_screen.xml  -->
-    <string name="elementsDescription">Descrição do elemento.</string>
+    <string name="elementsDescription">Descrição do elemento</string>
     <string name="catchDate">Data do registro</string>
     <string name="elementsName">Nome do elemento</string>
 
@@ -86,7 +85,7 @@
     <string name="emailShow">Email:</string>
     <string name="editNickname">Editar nickname</string>
     <string name="editNicknameDescription">Edite seu nickname de explorador. As mudanças podem levar algum tempo para serem atualizadas.</string>
-    <string name="deleteAccountSmallSizeText">Esse procedimento é permanente</string>
+    <string name="deleteAccountSmallSizeText">Esse procedimento é permanente.</string>
     <string name="deleteAccountBigSizeText">Deletar conta</string>
     <string name="signOut">Sair</string>
 
@@ -125,13 +124,13 @@
     <string name="initialMessage">Agora você irá aprender mais sobre como utilizar o aplicativo!</string>
     <string name="tutorialSignOut">Deseja sair do tutorial?</string>
     <string name="initialMessageTutorial">Bem vindo(a) ao nosso tutorial!\nAgora você irá aprender mais sobre como utilizar o aplicativo!</string>
-    <string name="energyBar">Barra de Energia</string>
-    <string name="energyBarTutorial">Essa é a sua energia, acompanhe quantos elemento podem ser registrados através dela!\nLembre-se que quando estiver sem energia poderá responder uma questão para tentar recuperar uma parte dela!</string>
+    <string name="energyBar">Barra de energia</string>
+    <string name="energyBarTutorial">Essa é a sua energia, acompanhe quantos elementos podem ser registrados através dela!\nLembre-se que quando estiver sem energia poderá responder uma questão para tentar recuperar uma parte dela!</string>
     <string name="question">Questão</string>
     <string name="questionTutorial">Aqui você pode responder uma questão para tentar recuperar parte da energia perdida, caso esteja com menos que o necessário para registrar um elemento!</string>
-    <string name="registerTutorialTitle">Botão de Registro</string>
-    <string name="registerTutorial">Aqui você pode registar os elementos! Lembre-se que perde-se energia para cada elemento registrado, tendo ele ou não!</string>
-    <string name="registeredElement">Elemento Registrado</string>
+    <string name="registerTutorialTitle">Botão de registro</string>
+    <string name="registerTutorial">Aqui você pode registrar os elementos! Lembre-se que perde-se energia para cada elemento registrado, tendo ele ou não!</string>
+    <string name="registeredElement">Elemento registrado</string>
     <string name="registeredElementTutorial">Aqui você pode visualizar o elemento registrado! Lembre-se que ganha-se uma pontuação ao registrar o elemento pela primeira vez!</string>
     <string name="takePicture">Tirar fotografia</string>
     <string name="takePictureTutorial">Aqui você pode tirar uma fotografia do elemento registrado!</string>
@@ -141,21 +140,21 @@
     <string name="historyElementTutorial">Ao registrar um elemento da história, ele é mostrado de maneira especial!</string>
     <string name="leafScore">Pontuação</string>
     <string name="leafScoreTutorial">Aqui você pode acompanhar sua quantidade de pontos, ou seja, a soma de todos os pontos obtidos no decorrer da trilha!</string>
-    <string name="map">Mapa de Progresso</string>
-    <string name="mapTutorial">Aqui você pode acompanhar seu progresso perante os elementos da história durante a trillha de acordo com o período!\nLembre-se que ele só aparece no momento em que você registrar o primeiro elemento da história!</string>
+    <string name="map">Mapa de progresso</string>
+    <string name="mapTutorial">Aqui você pode acompanhar seu progresso perante os elementos da história durante a trilha de acordo com a temporada!\nLembre-se que ele só aparece no momento em que você registrar o primeiro elemento da história!</string>
     <string name="almanac">Almanaque</string>
     <string name="almanacTutorial">Aqui você pode acessar todos os seus elementos já registrados, de modo organizado em seus respectivos livros!</string>
-    <string name="almanacBook1">Livros do Almanaque</string>
-    <string name="almanacBook1Tutorial">Aqui você pode acessar todos os 3 livros que compõem o Almanaque!\nLembre-se que eles representam períodos do ano, nos quais os elementos de cada um são exclusivos do livro ao qual pertencem!</string>
-    <string name="almanacBook2">Livros do Almanaque</string>
-    <string name="almanacBook2Tutorial">Pode-se navegar entre os livros e checar todos os elementos já registrados no período desejado!</string>
+    <string name="almanacBook1">Livros do almanaque</string>
+    <string name="almanacBook1Tutorial">Aqui você pode acessar todos os 3 livros que compõem o almanaque!\nLembre-se que cada um deles representa uma temporada diferente!</string>
+    <string name="almanacBook2">Livros do almanaque</string>
+    <string name="almanacBook2Tutorial">Pode-se navegar entre os livros e checar todos os elementos já registrados na temporada desejada!</string>
     <string name="elementIcon">Elemento</string>
     <string name="elementIconTutorial">Aqui você pode acessar mais informações sobre um elemento em específico!</string>
     <string name="element">Elemento</string>
     <string name="elementTutorial">Ao clicar no elemento, você poderá contemplar tais informações, assim como uma imagem do elemento registrado!</string>
-    <string name="elementCatchDate">Data de Registro</string>
+    <string name="elementCatchDate">Data de registro</string>
     <string name="elementCatchDateTutorial">Aqui é possível visualizar a data em que você registrou esse elemento!</string>
-    <string name="menuOption">Mais Opções</string>
+    <string name="menuOption">Mais opções</string>
     <string name="menuOptionTutorial">Aqui você pode acessar diversas opções que o aplicativo te oferece, como:</string>
     <string name="achievementOption">Conquistas</string>
     <string name="achievementOptionTutorial">Aqui você tem acesso conquistas adquiridas ao alcançar determinados objetivos na trilha!</string>
@@ -163,42 +162,42 @@
     <string name="rankingOptionTutorial">Aqui você tem acesso ao ranking de pontuação dos 10 primeiros exploradores, incluindo a sua!</string>
     <string name="rankingTutorialTitle">Ranking</string>
     <string name="rankingTutorial">Pode-se obervar os 10 primeros colocados e você aparecendo de forma destacada!</string>
-    <string name="mapOption">Mapa de Progresso</string>
+    <string name="mapOption">Mapa de progresso</string>
     <string name="mapOptionTutorial">Aqui você tem acesso a mesma tela acessada através do botão mapa já mencionado!</string>
     <string name="preferenceOption">Prefências</string>
     <string name="preferenceOptionTutorial">Aqui você tem acesso a algumas opções sobre sua conta!</string>
-    <string name="preferenceEditNick">Editar Nickname</string>
-    <string name="preferenceEditNickTutorial">Aqui você pode editar o seu Nickname!</string>
-    <string name="preferenceDeleteAccount">Deletar Conta</string>
+    <string name="preferenceEditNick">Editar nickname</string>
+    <string name="preferenceEditNickTutorial">Aqui você pode editar o seu nickname!</string>
+    <string name="preferenceDeleteAccount">Deletar conta</string>
     <string name="preferenceDeleteAccountTutorial">Aqui você pode deletar sua conta!\nLembre-se que esse processo é irreversível!</string>
     <string name="preferenceSignOut">Deslogar do App</string>
     <string name="preferenceSignOutTutorial">Aqui você pode deslogar da sua conta!\nLembre-se que ao deslogar, você perderá todos o seu progresso atual da história, mas seus elementos não serão perdidos!</string>
     <string name="tutorialOption">Tutorial</string>
     <string name="tutorialOptionTutorial">Você está nessa opção, e pode acessar o tutorial através dela quando quiser!</string>
-    <string name="aboutOption">Informações Sobre o App</string>
+    <string name="aboutOption">Informações sobre o App</string>
     <string name="aboutOptionTutorial">E por último, aqui você pode acessar algumas informações adicionais sobre o Missão Nascente!</string>
     <string name="advice">Recomendações</string>
     <string name="adviceMessage">Agora, algumas recomendações gerais antes de começarmos nossa aventura: traga sua garrafinha de água, venha com roupas fechadas e use sapatos confortáveis.\n\nTraga também pelo menos um assistente (um amigo, seus pais ou professor)! Além de mais divertido, vocês podem se ajudar quando tiverem dúvidas ou estiverem cansados.</string>
-    <string name="tutorialCompleted">Tutorial Concluído</string>
+    <string name="tutorialCompleted">Tutorial concluído</string>
     <string name="tutorialCompletedMessage">Tenha uma espetacular aventura, Explorador(a)!</string>
     <string name="theEnd">Fim</string>
-    <string name="next">próximo</string>
+    <string name="next">Próximo</string>
     <!-- Alert in tutorial -->
 
     <!-- String related to about-->
     <string name="aboutDescription">O Missão Nascente é um aplicativo para aqueles que gostam de se divertir e aprender ao mesmo tempo sobre as belezas que o nosso cerrado possui. Nele você registra elementos da trilha da Nascente do Córrego Cabeça de Veado do Jardim Botânico de Brasília, vive uma história de caça aos elementos da trilha e interage com professores que explicam o que você precisa saber.\n\nAlém do mais, você responde questões para recarregar a sua energia da câmera responsável por identificar os QR Codes dos elementos. Isso porque encontrar elementos não é uma tarefa fácil, logo a cada registro a energia da sua câmera diminui. Mas não se preocupe, ela também carrega com o tempo.\n\n
-O aplicativo também tem outros recursos para motivar você, explorador do cerrado. Um ranking de comparação entre todos os melhores que passaram pela trilha e conquistas com o seu progresso também são oferecidos.</string>
-    <string name="aboutPartner">O aplicativo foi desenvolvido em parceria entre alunos de Engenharia de Software Universidade de Brasília com a equipe de Superintenência Técnica do Jardim Botânico de Brasília. </string>
+        O aplicativo também tem outros recursos para motivar você, explorador do cerrado. Um ranking de comparação entre todos os melhores que passaram pela trilha e conquistas com o seu progresso também são oferecidos.</string>
+    <string name="aboutPartner">O aplicativo foi desenvolvido em parceria entre alunos de Engenharia de Software da Universidade de Brasília com a equipe de Superintenência Técnica do Jardim Botânico de Brasília.</string>
     <string name="developers">Equipe de desenvolvedores (UnB)</string>
     <string name="devGroup">Allan Jeffrey \nHugo Alves \nIgor Gabriel \nJoão Paulo Soares \nJoão Vitor Araujo \nMateus Manuel \nRenata Soares \nRoger Lenke \nRonyell Henrique \nSabryna Sousa</string>
     <string name="sutec">Equipe da Superintendência Técnica (JBB)</string>
     <string name="sutecGroup">Ana Luiza Caldas \nVânia Araújo Soares</string>
-    <string name="impossible_load_image">Impossível carregar a imagem</string>
-    <string name="try_photo_later">Impossível tirar foto, tente mais tarde</string>
+    <string name="impossible_load_image">Impossível carregar a imagem.</string>
+    <string name="try_photo_later">Impossível tirar foto, tente mais tarde.</string>
     <string name="preferences">Preferências</string>
     <string name="try_the_picture_later">Erro ao tirar foto! Tente mais tarde.</string>
     <string name="logging_in">Realizando login...</string>
     <string name="registering_user">Cadastrando usuário...</string>
     <string name="new_unlocked_achievement">Conquista desbloqueada:\n</string>
-    <string name="zero_elements">Não há elementos registrados nesse período</string>
+    <string name="zero_elements">Não há elementos registrados nessa temporada.</string>
 </resources>

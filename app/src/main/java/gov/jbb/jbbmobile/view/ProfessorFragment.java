@@ -109,12 +109,12 @@ public class ProfessorFragment extends Fragment {
                         currentDialog = "";
                         dialog = dialogs.get(0);
                         dialogs.remove(0);
-                        professorDialog.setText(currentDialog);
+                        professorDialog.setText(Html.fromHtml(currentDialog));
                     }
                 }else{
                     currentDialog += dialog;
                     dialog = "";
-                    professorDialog.setText(currentDialog);
+                    professorDialog.setText(Html.fromHtml(currentDialog));
                 }
 
                 if(!drawables.isEmpty()) {
@@ -156,14 +156,14 @@ public class ProfessorFragment extends Fragment {
                             currentDialog += dialog.charAt(0);
                             dialog = dialog.substring(1);
 
-                            professorDialog.setText(currentDialog);
+                            professorDialog.setText(Html.fromHtml(currentDialog));
                         }
                     }
                 });
             }
         };
 
-        timer.schedule(timerTask, 0, 5);
+        timer.schedule(timerTask, 0, 15);
     }
 
     private void stopHandler(){

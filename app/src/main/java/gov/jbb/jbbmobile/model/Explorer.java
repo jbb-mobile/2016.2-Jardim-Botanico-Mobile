@@ -150,8 +150,8 @@ public class Explorer{
     }
 
     private boolean validateNickname(String nickname){
-        if(nickname.length()>2 && nickname.length()<11){
-            String expression = "[a-zA-Z0-9]+";
+        if(nickname.length()>4 && nickname.length()<13){
+            String expression = "[a-zA-Z0-9\\s]+";
             Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(nickname);
             if (matcher.matches())

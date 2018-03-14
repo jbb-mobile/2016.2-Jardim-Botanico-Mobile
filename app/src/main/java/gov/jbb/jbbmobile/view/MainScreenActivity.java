@@ -471,11 +471,11 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
     public void setScore() {
         //Change score leaft color if explorer has any story element
         historyController = new HistoryController(this);
-        int history = historyController.getCurrentElement();
-        if (history != 1){
-            //Show history button
-            historyButton.setVisibility(View.VISIBLE);
-        }
+//        int history = historyController.getCurrentElement();
+//        if (history != 1){
+//            //Show history button
+//            historyButton.setVisibility(View.VISIBLE);
+//        }
         scoreViewText.setText("");
         scoreViewText.setText(String.valueOf(loginController.getExplorer().getScore()));
     }
