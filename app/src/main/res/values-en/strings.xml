@@ -1,0 +1,204 @@
+<resources>
+
+    <!-- COMMON STRINGS IN APP-->
+    <string name="appName">Missão Nascente</string>
+    <string name="idElement">idElement</string>
+
+    <!-- Strings related to validation-->
+    <string name="invalidPeriod">Invalid stage</string>
+    <string name="errorMessage">ERROR</string>
+    <string name="passwordValidation">Invalid password</string>
+    <string name="nicknameValidation">Invalid nickname</string>
+    <string name="noInternetConnection">No internet connection!</string>
+    <string name="errorInvalidEmail">This email address is invalid.</string>
+    <string name="errorInvalidPassword">Password too short</string>
+    <string name="incorrectPassword">Incorrect password</string>
+    <string name="errorFieldRequired">Field cannot be left blank.</string>
+
+    <!-- Strings related to name fields-->
+    <string name="nickname">Nickname</string>
+    <string name="password">Password</string>
+    <string name="confirmPassword">Confirm your password</string>
+    <string name="editInformations">Edit information</string>
+    <string name="explorer">Explorer,</string>
+    <string name="welcomeExplorer">Welcome,</string>
+    <string name="OKMessage">OK</string>
+    <string name="cancelMessage">Cancel</string>
+    <string name="yesMessage">Yes</string>
+    <string name="noMessage">No</string>
+    <string name="preference">Settings</string>
+    <string name="loading">Loading</string>
+    <string name="title_activity_logins">Sign in</string>
+    <string name="register">Register</string>
+
+    <!-- STRINGS USED IN CLASS-->
+
+    <!-- Strings related to Start Screen Activity  -->
+    <string name="noConnection">Failed internet connection!</string>
+    <string name="impossibleConnection">Impossible to connect!</string>
+
+    <!-- Strings related to Register Screen Activity  -->
+    <string name="nicknameValidationSize">Nickname must have at least 6 characters.</string>
+    <string name="passwordValidationSize">Password must have at least 6 characters.</string>
+    <string name="passwordConfirmValidation">Passwords must be the same.</string>
+    <string name="invalidEmail">Invalid email</string>
+    <string name="userAlreadyExists">User already registered.</string>
+
+    <!-- Strings related to Ranking Screen Activity  -->
+    <string name="rankingNoInternet">You must be connected to the internet to visualize rankings!</string>
+
+    <!-- Strings related to Preference Screen Activity  -->
+    <string name="enterPassword">Type your password.</string>
+    <string name="enterNickname">Type your nickname.</string>
+    <string name="deleteAccount">Delete account</string>
+    <string name="askDeleteAccountConfirmaton">Are you sure?</string>
+    <string name="nicknameExists">User already registered.</string>
+    <string name="wrongPassword">Incorrect password!</string>
+    <string name="signOutMessage">You will lose your progress on history. Are you sure you want to exit?</string>
+
+    <!-- Strings related to Login Screen Activity  -->
+    <string name="emailOrPasswordWrong">Wrong email and/or password!</string>
+
+    <!-- Strings related to Main Screen Activity  -->
+    <string name="putNewNickname">Type your new nickname.</string>
+    <string name="existedElement">You have already acquired this element!</string>
+    <string name="withoutEnergyMessage">It seems like you are out of energy, Explorer!</string>
+    <string name="withoutEnergyMessage2">Answer the following question to recover some energy!</string>
+
+
+    <!-- Strings related to settings_menu.xml  -->
+    <string name="achievements">Achievements</string>
+    <string name="ranking">Ranking</string>
+    <string name="about">About</string>
+    <string name="tutorial">Tutorial</string>
+
+    <!-- Strings related to activity_element_screen.xml  -->
+    <string name="elementsDescription">Element description</string>
+    <string name="catchDate">Registry date</string>
+    <string name="elementsName">Element name</string>
+
+    <!-- Strings related to activity_login_screen.xml  -->
+    <string name="login">Login</string>
+
+    <!-- Strings related to activity_preference_screen.xml  -->
+    <string name="titleEditAccount">Edit account</string>
+    <string name="nickNameShow">Your nickname:</string>
+    <string name="emailShow">Email:</string>
+    <string name="editNickname">Edit nickname</string>
+    <string name="editNicknameDescription">Edit your Explorer\'s nickname. Changes could take a while to take effect.</string>
+    <string name="deleteAccountSmallSizeText">This action cannot be undone.</string>
+    <string name="deleteAccountBigSizeText">Delete account</string>
+    <string name="signOut">Quit</string>
+
+    <!-- Strings related to activity_register_screen.xml  -->
+    <string name="email">Email</string>
+
+    <!-- Strings related to activity_start_screen.xml  -->
+    <string name="signInWithGoogle">Sign in with Google</string>
+    <string name="signUp">Sign up</string>
+
+    <!-- Strings related to current_user_ranking.xml  -->
+    <string name="score">Score</string>
+
+    <!-- Strings related to current_user_ranking.xml  -->
+    <string name="elementNameTitle">Element name</string>
+
+    <!-- Strings related to ranking_adapter.xml  -->
+    <string name="position">Position</string>
+    <string name="rankingTitle">Ranking</string>
+
+    <!-- Strings related to Professor -->
+    <string name="professor_placeholder">Texto longo do Professor para teste da fragment Texto longo do Professor para teste da fragment Texto longo do Professor para teste da fragment Texto longo do Professor para teste da fragment</string>
+
+    <!-- Strings related to QuestionController  -->
+    <string name="trueAlternative">True</string>
+    <string name="falseAlternative">False</string>
+
+    <!-- String related to books -->
+    <string name="firstBook">Aqua</string>
+    <string name="secondBook">Dormancy</string>
+    <string name="thirdBook">Renovation</string>
+    <string name="textForTutorialChoice">Do you wish to go through the tutorial now?</string>
+
+    <!-- String related to tutorial -->
+    <string name="welcomeTutorial">Welcome to the tutorial!</string>
+    <string name="initialMessage">Now you will learn how to use this app!</string>
+    <string name="tutorialSignOut">Do you wish to leave the tutorial?</string>
+    <string name="initialMessageTutorial">Welcome to the tutorial!\nNow you will learn how to use this app!</string>
+    <string name="energyBar">Energy bar</string>
+    <string name="energyBarTutorial">This is your energy, keep track of how many elements you can register with it!\nRemember that when you run out of energy, you can answer a question to recover some of it!</string>
+    <string name="question">Question</string>
+    <string name="questionTutorial">Here you can answer a question to recover some of your lost energy, if you don\'t have enough to register a new element!</string>
+    <string name="registerTutorialTitle">Register button</string>
+    <string name="registerTutorial">Here you can register elements! Remember you\'ll lose some energy for every registered element, even if you already have it!</string>
+    <string name="registeredElement">Registered element</string>
+    <string name="registeredElementTutorial">Here you can visualizethe registered element. Remember you will earn points every time you reigster a new element!</string>
+    <string name="takePicture">Take a picture</string>
+    <string name="takePictureTutorial">Here you can take a new picture of the registered element.</string>
+    <string name="moreInformationElement">More information</string>
+    <string name="moreInformationElementTutorial">Here you can see more information about the element.</string>
+    <string name="historyElement">History element</string>
+    <string name="historyElementTutorial">When registering a history element, a special display is shown!</string>
+    <string name="leafScore">Score</string>
+    <string name="leafScoreTutorial">Here you can keep track of your score. It is the sum of all points acquired from the start of the game!</string>
+    <string name="map">Progress map</string>
+    <string name="mapTutorial">Here you can keep track of your history elements during the trail according to their respective stage.\nRemember this is only visible by the time you register the first history element!</string>
+    <string name="almanac">Almanac</string>
+    <string name="almanacTutorial">Here you can access every element that has been registered, organized by their respective books!</string>
+    <string name="almanacBook1">Almanac books</string>
+    <string name="almanacBook1Tutorial">Here you can access all the 3 books that constitute the Almanac!\nRemember that each of them represent a different stage!</string>
+    <string name="almanacBook2">Almanac books</string>
+    <string name="almanacBook2Tutorial">Here you can browse the books and check the elements registered in their respective stages!</string>
+    <string name="elementIcon">Element</string>
+    <string name="elementIconTutorial">Here you may access more information about a particular element!</string>
+    <string name="element">Element</string>
+    <string name="elementTutorial">When clicking on the element, you\'ll be able to read its data and see its respective picture.</string>
+    <string name="elementCatchDate">Registry date</string>
+    <string name="elementCatchDateTutorial">Here it is possible to visualize the date you registered this element.</string>
+    <string name="menuOption">More options</string>
+    <string name="menuOptionTutorial">Here you can access several options this app has to offer, as in:</string>
+    <string name="achievementOption">Achievements</string>
+    <string name="achievementOptionTutorial">Here you can see your achievements unlocked by reaching certain objectives at the game!</string>
+    <string name="rankingOption">Ranking</string>
+    <string name="rankingOptionTutorial">Here you can see the ranking of the top 10 Explorers!</string>
+    <string name="rankingTutorialTitle">Ranking</string>
+    <string name="rankingTutorial">It is possible to observe the top 10 Explorers and your position highlighted!</string>
+    <string name="mapOption">Progress map</string>
+    <string name="mapOptionTutorial">Here you have access to the same screen through the Map button mentioned before.</string>
+    <string name="preferenceOption">Settings</string>
+    <string name="preferenceOptionTutorial">Here you have access to some options about your account.</string>
+    <string name="preferenceEditNick">Edit nickname</string>
+    <string name="preferenceEditNickTutorial">Here you can edit your nickname!</string>
+    <string name="preferenceDeleteAccount">Delete account</string>
+    <string name="preferenceDeleteAccountTutorial">Here you can delete your account.\nRemember this action cannot be undone!</string>
+    <string name="preferenceSignOut">Sign out</string>
+    <string name="preferenceSignOutTutorial">Here you can sign out of your account.\nRemember that by logging out you will lose all your History progress, but your elements won\'t be lost.</string>
+    <string name="tutorialOption">Tutorial</string>
+    <string name="tutorialOptionTutorial">You are in this tutorial, and you can access it any time you want.</string>
+    <string name="aboutOption">About the app</string>
+    <string name="aboutOptionTutorial">Lastly, here you can access additional information about the Missão Nascente project.</string>
+    <string name="advice">Recommendations</string>
+    <string name="adviceMessage">Now, some general advice before the star of the trail: bring your water bottle, wear jeans and comfortable shoes.\n\nBring at least one assistant (friends, relatives or a instructor)! Besides being more entertaining, you can help each other if you are in doubt or tired.</string>
+    <string name="tutorialCompleted">Tutorial completed</string>
+    <string name="tutorialCompletedMessage">Have a great adventure, Explorer!</string>
+    <string name="theEnd">End</string>
+    <string name="next">Next</string>
+    <!-- Alert in tutorial -->
+
+    <!-- String related to about-->
+    <string name="aboutDescription">Missão Nascente is an app for those who like to simultaneously have fun and learn about the natural beauty of the Cerrado. Using it, you register elements of the spring trail of the "Cabeça-de-Veado" stram, at Brasília Botanical Garden. You search for elements and interact with professors that tell you what you need to know.\n\nMoreover, you answer questions to recharge your energy, which is used to identify QR Codes corresponding to elements dispersed throughout the trail. This is not an easy task, because your energy goes down with every new register. But don\'t worry, it also recharges over time!\n\n
+The app also has other ways to keep you entertained, Explorer of the Cerrado. A ranking to compare you and the top Explorers of the trail and achievements are also shown.</string>
+    <string name="aboutPartner">The app was developed on a partnership between Software Engineering students at Brasília Univeristy (UnB) and the team of Technical Scientific Superintendence of Brasília Botanical Garden.</string>
+    <string name="developers">Developer team (UnB)</string>
+    <string name="devGroup">Allan Jeffrey \nHugo Alves \nIgor Gabriel \nJoão Paulo Soares \nJoão Vitor Araujo \nMateus Manuel \nRenata Soares \nRoger Lenke \nRonyell Henrique \nSabryna Sousa</string>
+    <string name="sutec">Team of Technical Scientific Superintendence (JBB)</string>
+    <string name="sutecGroup">Ana Luiza Caldas \nVânia Araújo Soares</string>
+    <string name="impossible_load_image">Impossible to load the image.</string>
+    <string name="try_photo_later">Impossible to take picture, try again later.</string>
+    <string name="preferences">Settings</string>
+    <string name="try_the_picture_later">Error taking picture! Try again later.</string>
+    <string name="logging_in">Logging in...</string>
+    <string name="registering_user">Registering user...</string>
+    <string name="new_unlocked_achievement">New Achievement unlocked:\n</string>
+    <string name="zero_elements">There are no Elements registered here.</string>
+</resources>

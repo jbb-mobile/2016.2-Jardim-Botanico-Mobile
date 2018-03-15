@@ -84,13 +84,13 @@
         android:layout_marginLeft="145dp"
         android:visibility="invisible"/>
 
-    <Button
-        android:id="@+id/mapTutorial"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="405dp"
-        android:layout_marginLeft="262dp"
-        android:visibility="invisible"/>
+    <!--<Button-->
+        <!--android:id="@+id/mapTutorial"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_marginTop="405dp"-->
+        <!--android:layout_marginLeft="262dp"-->
+        <!--android:visibility="invisible"/>-->
 
     <Button
         android:id="@+id/almanacTutorial"
@@ -172,13 +172,13 @@
         android:layout_marginLeft="37dp"
         android:visibility="invisible"/>
 
-    <Button
-        android:id="@+id/mapOptionTutorial"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="255dp"
-        android:layout_marginLeft="100dp"
-        android:visibility="invisible"/>
+    <!--<Button-->
+        <!--android:id="@+id/mapOptionTutorial"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_marginTop="255dp"-->
+        <!--android:layout_marginLeft="100dp"-->
+        <!--android:visibility="invisible"/>-->
 
     <Button
         android:id="@+id/preferenceOptionTutorial"

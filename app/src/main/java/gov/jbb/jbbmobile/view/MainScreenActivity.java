@@ -202,7 +202,7 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
                     while (energyController.getExplorer().getEnergy() < energyController.getMAX_ENERGY()) {
                         Log.d("ENERGY", "kapiroto");
                         updateEnergyProgress();
-                        sleep(6000);
+                        sleep(3000);
                         energyController.setExplorerEnergyInDataBase(energyController.getExplorer().getEnergy(), energyController.INCREMENT_FOR_TIME);
                     }
                 } catch (InterruptedException ex) {

@@ -96,83 +96,83 @@ public class TutorialScreenActivity extends AppCompatActivity implements View.On
                 Glide.with(this).load(id).into(tutorialCurrentImage);
                 moveShowCaseCircle(leafScoreTutorial,getString(R.string.leafScore),getString(R.string.leafScoreTutorial),ShowcaseView.ABOVE_SHOWCASE);
                 break;
+//            case 8:
+//                moveShowCaseCircle(mapTutorial,getString(R.string.map),getString(R.string.mapTutorial),ShowcaseView.ABOVE_SHOWCASE);
+//                break;
             case 8:
-                moveShowCaseCircle(mapTutorial,getString(R.string.map),getString(R.string.mapTutorial),ShowcaseView.ABOVE_SHOWCASE);
-                break;
-            case 9:
                 moveShowCaseCircle(almanacTutorial,getString(R.string.almanac),getString(R.string.almanacTutorial),ShowcaseView.ABOVE_SHOWCASE);
                 break;
-            case 10:
+            case 9:
                 id = R.drawable.book1_image;
                 Glide.with(this).load(id).into(tutorialCurrentImage);
                 moveShowCaseCircle(almanacBook1Tutorial,getString(R.string.almanacBook1),getString(R.string.almanacBook1Tutorial),ShowcaseView.BELOW_SHOWCASE);
                 break;
-            case 11:
+            case 10:
                 id = R.drawable.book2_image;
                 Glide.with(this).load(id).into(tutorialCurrentImage);
                 moveShowCaseCircle(almanacBook2Tutorial,getString(R.string.almanacBook2),getString(R.string.almanacBook2Tutorial),ShowcaseView.BELOW_SHOWCASE);
                 break;
-            case 12:
+            case 11:
                 moveShowCaseCircle(elementIconTutorial,getString(R.string.elementIcon),getString(R.string.elementIconTutorial),ShowcaseView.BELOW_SHOWCASE);
                 break;
-            case 13:
+            case 12:
                 id = R.drawable.element_book_image;
                 Glide.with(this).load(id).into(tutorialCurrentImage);
                 moveShowCaseCircle(elementTutorial,getString(R.string.element),getString(R.string.elementTutorial),ShowcaseView.BELOW_SHOWCASE);
                 break;
-            case 14:
+            case 13:
                 id = R.drawable.element_catch_date_book_image;
                 Glide.with(this).load(id).into(tutorialCurrentImage);
                 moveShowCaseCircle(elementCatchDateTutorial,getString(R.string.elementCatchDate),getString(R.string.elementCatchDateTutorial),ShowcaseView.ABOVE_SHOWCASE);
                 break;
-            case 15:
+            case 14:
                 id = R.drawable.main_screen_image;
                 Glide.with(this).load(id).into(tutorialCurrentImage);
                 moveShowCaseCircle(menuOptionTutorial,getString(R.string.menuOption),getString(R.string.menuOptionTutorial),ShowcaseView.ABOVE_SHOWCASE);
                 break;
-            case 16:
+            case 15:
                 id = R.drawable.open_menu_image;
                 Glide.with(this).load(id).into(tutorialCurrentImage);
                 moveShowCaseCircle(achievementOptionTutorial,getString(R.string.achievementOption),getString(R.string.achievementOptionTutorial),ShowcaseView.BELOW_SHOWCASE);
                 break;
-            case 17:
+            case 16:
                 moveShowCaseCircle(rankingOptionTutorial,getString(R.string.rankingOption),getString(R.string.rankingOptionTutorial),ShowcaseView.BELOW_SHOWCASE);
                 break;
-            case 18:
+            case 17:
                 id = R.drawable.ranking_image;
                 Glide.with(this).load(id).into(tutorialCurrentImage);
                 moveShowCaseCircle(rankingTutorial,getString(R.string.rankingTutorialTitle),getString(R.string.rankingTutorial),ShowcaseView.BELOW_SHOWCASE);
                 break;
-            case 19:
-                id = R.drawable.open_menu_image;
-                Glide.with(this).load(id).into(tutorialCurrentImage);
-                moveShowCaseCircle(mapOptionTutorial,getString(R.string.mapOption),getString(R.string.mapOptionTutorial),ShowcaseView.ABOVE_SHOWCASE);
-                break;
-            case 20:
+//            case 19:
+//                id = R.drawable.open_menu_image;
+//                Glide.with(this).load(id).into(tutorialCurrentImage);
+//                moveShowCaseCircle(mapOptionTutorial,getString(R.string.mapOption),getString(R.string.mapOptionTutorial),ShowcaseView.ABOVE_SHOWCASE);
+//                break;
+            case 18:
                 id = R.drawable.open_menu_image;
                 Glide.with(this).load(id).into(tutorialCurrentImage);
                 moveShowCaseCircle(preferenceOptionTutorial,getString(R.string.preferenceOption),getString(R.string.preferenceOptionTutorial),ShowcaseView.ABOVE_SHOWCASE);
                 break;
-            case 21:
+            case 19:
                 id = R.drawable.preference_screen_image;
                 Glide.with(this).load(id).into(tutorialCurrentImage);
                 moveShowCaseCircle(preferenceEditNickTutorial,getString(R.string.preferenceEditNick),getString(R.string.preferenceEditNickTutorial),ShowcaseView.ABOVE_SHOWCASE);
                 break;
-            case 22:
+            case 20:
                 moveShowCaseCircle(preferenceDeleteAccountTutorial,getString(R.string.preferenceDeleteAccount),getString(R.string.preferenceDeleteAccountTutorial),ShowcaseView.ABOVE_SHOWCASE);
                 break;
-            case 23:
+            case 21:
                 moveShowCaseCircle(preferenceSignOutTutorial,getString(R.string.preferenceSignOut),getString(R.string.preferenceSignOutTutorial),ShowcaseView.ABOVE_SHOWCASE);
                 break;
-            case 24:
+            case 22:
                 id = R.drawable.open_menu_image;
                 Glide.with(this).load(id).into(tutorialCurrentImage);
                 moveShowCaseCircle(tutorialOptionTutorial,getString(R.string.tutorialOption),getString(R.string.tutorialOptionTutorial),ShowcaseView.ABOVE_SHOWCASE);
                 break;
-            case 25:
+            case 23:
                 moveShowCaseCircle(aboutOptionTutorial,getString(R.string.aboutOption),getString(R.string.aboutOptionTutorial),ShowcaseView.ABOVE_SHOWCASE);
                 break;
-            case 26:
+            case 24:
                 tutorialCurrentImage.setVisibility(View.INVISIBLE);
                 showcaseView.setTarget(Target.NONE);
                 showcaseView.setContentTitle(getString(R.string.advice));
@@ -180,14 +180,14 @@ public class TutorialScreenActivity extends AppCompatActivity implements View.On
                 showcaseView.setStyle(R.style.Final);
                 showcaseView.setButtonText(getString(R.string.next));
                 break;
-            case 27:
+            case 25:
                 showcaseView.setTarget(Target.NONE);
                 showcaseView.setContentTitle(getString(R.string.tutorialCompleted));
                 showcaseView.setContentText(getString(R.string.tutorialCompletedMessage));
                 showcaseView.setStyle(R.style.Final);
                 showcaseView.setButtonText(getString(R.string.theEnd));
                 break;
-            case 28:
+            case 26:
                 Intent mainScreenIntent = new Intent(TutorialScreenActivity.this, MainScreenActivity.class);
                 TutorialScreenActivity.this.startActivity(mainScreenIntent);
                 finish();
@@ -225,7 +225,7 @@ public class TutorialScreenActivity extends AppCompatActivity implements View.On
         this.moreInformationElementTutorial = new ViewTarget(R.id.moreInformationElementTutorial, this);
         this.historyElementTutorial = new ViewTarget(R.id.historyElementTutorial, this);
         this.leafScoreTutorial = new ViewTarget(R.id.leafScoreTutorial, this);
-        this.mapTutorial = new ViewTarget(R.id.mapTutorial, this);
+//        this.mapTutorial = new ViewTarget(R.id.mapTutorial, this);
         this.almanacTutorial = new ViewTarget(R.id.almanacTutorial, this);
         this.almanacBook1Tutorial = new ViewTarget(R.id.almanacBook1Tutorial, this);
         this.almanacBook2Tutorial = new ViewTarget(R.id.almanacBook2Tutorial, this);
@@ -235,7 +235,7 @@ public class TutorialScreenActivity extends AppCompatActivity implements View.On
         this.achievementOptionTutorial = new ViewTarget(R.id.achievementOptionTutorial, this);
         this.rankingOptionTutorial = new ViewTarget(R.id.rankingOptionTutorial, this);
         this.rankingTutorial = new ViewTarget(R.id.rankingTutorial, this);
-        this.mapOptionTutorial = new ViewTarget(R.id.mapOptionTutorial, this);
+//        this.mapOptionTutorial = new ViewTarget(R.id.mapOptionTutorial, this);
         this.preferenceOptionTutorial = new ViewTarget(R.id.preferenceOptionTutorial, this);
         this.preferenceEditNickTutorial = new ViewTarget(R.id.preferenceEditNickTutorial, this);
         this.preferenceDeleteAccountTutorial = new ViewTarget(R.id.preferenceDeleteAccountTutorial, this);

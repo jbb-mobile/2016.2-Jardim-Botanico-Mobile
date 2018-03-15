@@ -91,7 +91,7 @@ public class EnergyController {
         int elapsedEnergy;
 
         Log.d("TIME: ", String.valueOf(elapsedEnergyTime));
-        elapsedEnergy = (int)(elapsedEnergyTime / 6000); // 6000 - Time to charge one amount of energy
+        elapsedEnergy = (int)(elapsedEnergyTime / 3000); // 3000 - Time to charge one amount of energy
         Log.d("Energy Elapsed: ", String.valueOf(elapsedEnergy));
         if(elapsedEnergy + explorer.getEnergy() >= MAX_ENERGY) {
             explorer.setEnergy(MAX_ENERGY);
